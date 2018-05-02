@@ -1,0 +1,41 @@
+<!-- <p>
+  referral-dashboard works!
+</p> -->
+<div class="row">
+  <div class="col-md-4 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title text-primary"> <i class="fa fa-th-large"></i>&nbsp;Recent Application Update</h4>
+      </div>
+      <div class="card-body">
+        <div class="card-block">
+          <ng2-smart-table [settings]="RecentApplicationUpdateTableSettings" [source]="RecentApplicationsTableSource"></ng2-smart-table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title text-primary">
+          <i class="fa fa-th"></i>&nbsp;Applications</h4>
+      </div>
+      <div class="card-body">
+        <div class="card-block table-feature ">
+          <div class="row">
+            <div class="col-md-6">
+              <input #search class="search mb-2 form-control" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+            </div>
+            <div class="col-md-6">
+              <select class="custom-select form-control" [(ngModel)]='select' (change)="onSelect(select)"  id="location2" name="location2">
+                <option  [ngValue]='option' *ngFor="let option of selectOptions">{{option.label}}</option>
+              </select>
+            </div>
+
+          </div>
+          <ng2-smart-table [settings]="ApplicationsTableSettings" [source]="ApplicationsTableSource" ></ng2-smart-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

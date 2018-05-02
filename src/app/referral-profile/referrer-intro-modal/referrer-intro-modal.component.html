@@ -1,0 +1,60 @@
+<div class="modal-header">
+  <h4 class="modal-title text-primary">Aussie Cash Loans - Referrer Profile</h4>
+  <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p class="mb-0">
+    <strong>Referral Partner Account</strong>
+  </p>
+  <p class="mb-0">
+    <strong>Link:</strong>
+    <a href="http://www.maxfunding.com.au/referral/">http://www.maxfunding.com.au/referral/</a>
+  </p>
+  <p class="mb-0">
+    <strong>Tracking Codes</strong>
+  </p>
+  <p class="mb-1">Copy & paste the tracking codes to your advertising material (e.g. email, website). Once your referred client has completed
+    the application form, lead is trackable in Referrer Account. Feel free to test out the application form (Remember to
+    use 'Testing' as the name)</p>
+  <p class="mb-0">
+    <strong>Business:</strong>
+  </p>
+  <p class="mb-1">
+    <a href="http://www.maxfinancialgroup.com.au/affiliate.php?partner={{trackID}}&purpose=Business">http://www.maxfinancialgroup.com.au/affiliate.php?partner={{trackID}}&purpose=Business</a>
+  </p>
+  <p class="mb-0">
+    <strong>QR Code:</strong>
+  </p>
+  <p class="md-1">
+    <code>Link:</code>
+    <a href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.maxfinancialgroup.com.au/affiliate.php?partner={{trackID}}">https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.maxfinancialgroup.com.au/affiliate.php?partner={{trackID}}</a>
+  </p>
+  <p class="md-1">
+    <code class="valign-top">Image:</code>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.maxfinancialgroup.com.au/affiliate.php?partner={{trackID}}"
+      alt="">
+  </p>
+  <p class="mb-0">
+    <strong>iframe url for Business Purpose:</strong>
+  </p>
+  <fieldset class="mb1">
+      <div  class="input-group">
+        <input #iframeUrl disabled value="<iframe src='http://www.maxfunding.com.au/application/affiliate-business-form.php?partner={{trackID}}' width='900px;' height='600px;'></iframe>"  aria-describedby="button-addon2" class="form-control" placeholder="Button on right" type="text">
+        <div  class="input-group-append">
+          <span  class="input-group-btn" id="button-addon2">
+            <button  (click)='onCopy()' class="btn btn-raised btn-primary" type="button"><i class="fa fa-clone"></i></button>
+          </span>
+        </div>
+      </div>
+    </fieldset>
+  <!-- <p class="mb1">
+  
+    <input type="text" class="form-control" value="<iframe src='http://www.maxfunding.com.au/application/affiliate-business-form.php?partner={{trackID}}' width='900px;' height='600px;'></iframe>">
+  
+  </p> -->
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-primary" (click)="c('Close click')">Close</button>
+</div>

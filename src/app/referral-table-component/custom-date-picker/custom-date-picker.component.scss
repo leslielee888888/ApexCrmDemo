@@ -1,0 +1,15 @@
+.custom-day{
+    text-align: center;
+    padding: .185rem .25rem;
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+}
+
+.custom-day.range{
+    background-color: #0275d8;
+    color: #fff;
+}
+.faded{
+    opacity: .5;  
+}

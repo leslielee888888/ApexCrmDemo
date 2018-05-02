@@ -1,0 +1,111 @@
+
+
+
+<!--List Group starts-->
+<section id="list">   
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title"><i class="ft-layout" ng-reflect-ng-class="ft-layout"></i> Start Referral</h4>
+        </div>
+        <div class="card-body">
+            <div class="card-block">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                        <h5 class="text-uppercase card-title">Your referral URL</h5>                        
+                        </div>
+                        <p class="mb-3">This is your unique partner referral URL. It can be used as a link you give to your client or link it from your
+                            web site. Once your client applies, we’ll know the referral came from you and you’ll be eligible for a commission
+                            when funded.</p>
+                            <div  class="col-xl-12 col-lg-12 col-md-12">
+                                <fieldset  class="form-group">                   
+                                    <div class="input-group">
+                                        <input #copyRef1  aria-describedby="button-addon4" class="form-control small" disabled placeholder="Button on right" type="text" value="http://www.maxfinancialgroup.com.au/affiliate.php?partner=3319844217&purpose=Business">
+                                        <div  class="input-group-append">
+                                          <span  class="input-group-btn" id="button-addon4"  >
+                                            <button class="btn btn-raised btn-primary" type="button" [appClickToCopy]='copyRef1'>
+                                              <i class="fa fa-clone"></i>
+                                            </button>
+                                          </span>
+                                        </div>
+                                      </div>
+                                </fieldset>                                
+                            </div> 
+                    </li>
+                    <li class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                        <h5 class="text-uppercase card-title">Link to our website</h5>
+                        </div>
+                        <p class="mb-3">This is your unique partner referral URL to our website. There could be clients that would like to learn more about our products before applying; you can direct them to our home page. If client do apply, we can track the referral it’s from you.</p>
+                        <div  class="col-xl-12 col-lg-12 col-md-12">
+                            <fieldset  class="form-group">                   
+                                <div class="input-group">
+                                    <input #copyRef2  aria-describedby="button-addon4" class="form-control small" disabled placeholder="Button on right" type="text" value="http://www.maxfunding.com.au/?p=1234-Company">
+                                    <div  class="input-group-append">
+                                      <span  class="input-group-btn" id="button-addon4">
+                                        <button class="btn btn-raised btn-primary" type="button" [appClickToCopy]='copyRef2'>
+                                          <i class="fa fa-clone"></i>
+                                        </button>
+                                      </span>
+                                    </div>
+                                  </div>
+                            </fieldset>                                
+                        </div>          
+                      </li>
+                    <li class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                        <h5 class="text-uppercase card-title">Referral form embed into your website</h5>
+                        </div>
+                        <p class="mb-3">Why manually handle the applications when referral can be automated via your website.</p>
+                        <div class="card-text">
+                            <ul class="list-style-circle">
+                              <li>Follow these steps:
+                                <ul class="list-style-square">
+                                  <li>Copy and paste the HTML code to the page you’d like the form to appear. If you're unfamiliar with how
+                                    to do this, you may need the help of your web site developer</li>
+                                  <li>When a customer completes and submits the form, the referral will appear as a new lead in the Partner
+                                    Portal.</li>
+                                  <li>Once submitted, our team will reach out to the applicant and help them complete the process as per normal;
+                                    we’ll keep you posted throughout the process to ensure you’re updated with progress.</li>
+                                </ul>
+                              </li>     
+                            </ul> 
+                            <div  class="col-xl-12 col-lg-12 col-md-12">
+                                <fieldset  class="form-group">
+                                    <label  for="withlogo">With Logo</label>
+                                    <div class="input-group">
+                                        <input #copyRef3 aria-describedby="button-addon4" disabled class="form-control small" placeholder="Button on right" type="text" value="<iframe src='https://maxloans.com.au/application/restart?Purpose=business&partner=3319844217' width='900px;' height='600px;'></iframe>">
+                                        <div  class="input-group-append">
+                                          <span  class="input-group-btn" id="button-addon4">
+                                            <button class="btn btn-raised btn-primary" type="button" [appClickToCopy]='copyRef3'>
+                                              <i class="fa fa-clone"></i>
+                                            </button>
+                                          </span>
+                                        </div>
+                                      </div>
+                                </fieldset>                                
+                            </div>     
+                            <div  class="col-xl-12 col-lg-12 col-md-12">
+                                <fieldset  class="form-group">
+                                    <label  for="withlogo">No Logo</label>
+                                    <div class="input-group">
+                                        <input #copyRef4  aria-describedby="button-addon4" class="form-control small" disabled placeholder="Button on right" type="text" value="<iframe src='https://maxloans.com.au/application/restart?NoLogo=true&Purpose=business&partner=3319844217' width='900px;' height='600px;' frameBorder='0' ></iframe>">
+                                        <div  class="input-group-append">
+                                          <span  class="input-group-btn" id="button-addon4">
+                                            <button class="btn btn-raised btn-primary" type="button"  [appClickToCopy]='copyRef4'>
+                                              <i class="fa fa-clone"></i>
+                                            </button>
+                                          </span>
+                                        </div>
+                                      </div>
+                                </fieldset>                                
+                            </div>                 
+                          </div>    
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>      
+</section>
+<!--List Group starts-->
+

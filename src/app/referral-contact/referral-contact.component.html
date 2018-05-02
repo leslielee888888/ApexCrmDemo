@@ -1,0 +1,44 @@
+<!-- Basic form layout section start -->
+<section id="horizontal-form-layouts"> 
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title" id="horz-layout-colored-controls"><i class="ft-message-square" ng-reflect-ng-class="ft-message-square"></i> Contact Us</h4>
+          <p class="mb-0">Got a query? Please submit your message here and our partnership team will contact you by next working day.</p>
+        </div>
+        <div class="card-body">
+          <div class="px-3">
+            <form class="form form-horizontal" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+              <div class="form-body">
+                <div class="form-group row">
+                  <label class="col-md-2 label-control" for="timesheetinput7">Contact us</label>
+                  <div class="col-md-10">
+                    <div class="position-relative has-icon-left">
+                      <textarea id="timesheetinput7" rows="5" class="form-control" name="txtQuery" formControlName="txtQuery" [(ngModel)]='txtQuery'></textarea>
+                      <div class="form-control-position">
+                        <i class="ft-file"></i>
+                      </div>
+                      <span *ngIf="contactForm.controls.txtQuery.touched && contactForm.controls.txtQuery.dirty">
+                        <span *ngIf="contactForm.controls.txtQuery.hasError('required')" class="text-danger">This field is required</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-actions right">
+                <!-- <button type="button" class="btn btn-raised btn-warning mr-1">
+                  <i class="ft-x"></i> Cancel
+                </button> -->
+                <button type="submit" [disabled]="!contactForm.valid" class="btn btn-raised btn-primary">
+                  <i class="fa fa-check-square-o" ></i> Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</section>
+<!-- // Basic form layout section end -->
