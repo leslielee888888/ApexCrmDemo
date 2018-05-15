@@ -6,6 +6,7 @@ import { EmailMeCheckRenderComponent } from "../referral-table-component/email-m
 import { RecentContentComponent } from "../referral-table-component/recent-content/recent-content.component";
 import { RefferalDashboardService } from "../service/referral-dashboard/refferal-dashboard.service";
 import { ReferralDashboardComponent } from "./referral-dashboard.component";
+import { CommentComponent } from "../referral-table-component/comment/comment.component";
 
 const onComponentInitFunction = null;
 export const ApplicationsTableSettings = {
@@ -15,6 +16,7 @@ export const ApplicationsTableSettings = {
             title: 'Date',
             filter: false,
             type: 'custom',
+            sortDirection: 'desc',
             renderComponent: DateRenderComponent,
             width: '150px'
         },
@@ -26,31 +28,38 @@ export const ApplicationsTableSettings = {
             width: '150px'
         },
         DesiredAmount: {
-            title: 'Desired Loan Amount',
+            title: 'Loan Amount',
             filter: false,
             type: 'custom',
             renderComponent: LoanAmountRenderComponent,
         },
-        mc_final_status: {
+       /*  mc_final_status: {
             title: 'Preliminary Result',
             filter: false,
             width: '150px'
-        },
+        }, */
         ReferrerCrmStatus: {
-            title: 'Verification',
+            title: 'Status',
             filter: false,
         },
-        ReferrerCrmAmount: {
+       /*  ReferrerCrmAmount: {
             title: 'Offered Loan Amount',
             filter: false,
             type: 'custom',
             renderComponent: LoanAmountRenderComponent,
-        },
+        }, */
         ViewAppForm: {
-            title: 'View App Form',
+            title: 'App Form',
             filter: false,
             type: 'custom',
             renderComponent: ViewAppFormRenderComponent
+        },
+        Comment: {
+            title: 'Comment',
+            filter: false,
+            type: 'custom',
+            renderComponent: CommentComponent,
+            onComponentInitFunction: null
         },
         notify: {
             title: 'Email me update',

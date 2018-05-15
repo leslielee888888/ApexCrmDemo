@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ReferralFeeService {
 
-  constructor(private http:HttpService) { }
+  constructor(private http: HttpService) { }
 
-  getUserCommission(startDate?:Date, endDate?: Date){
+  getUserCommission(startDate?: Date, endDate?: Date) {
     return this.http.Get("function/user-commission")
 }
 }

@@ -23,7 +23,13 @@ const after = (one: NgbDateStruct, two: NgbDateStruct) =>
 export class CustomDatePickerComponent implements OnInit {
 
   model: NgbDateStruct;
-  disabledModel: NgbDateStruct = {year: parseInt(moment().format('YYYY')), month: parseInt(moment().format('MM')), day: parseInt(moment().format('DD'))};
+  // tslint:disable-next-line:radix
+  disabledModel: NgbDateStruct = {
+    // tslint:disable-next-line:radix
+    year: parseInt(moment().format('YYYY'))
+    // tslint:disable-next-line:radix
+    , month: parseInt(moment().format('MM')), day: parseInt(moment().format('DD'))
+  };
   disabled = true;
 
   // Range datepicker start
@@ -32,9 +38,9 @@ export class CustomDatePickerComponent implements OnInit {
   fromDate: NgbDateStruct;
   toDate: NgbDateStruct;
 
-  startDate:string = '';
-  endDate:string = '';
-  constructor(private activeModal:NgbActiveModal) { }
+  startDate = '';
+  endDate = '';
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
     this.selectToday()
@@ -55,9 +61,12 @@ export class CustomDatePickerComponent implements OnInit {
   }
   // Selects today's date
   selectToday() {
-    this.model = {year: parseInt(moment().format('YYYY')), month: parseInt(moment().format('MM')), day: parseInt(moment().format('DD'))};
+    // tslint:disable-next-line:radix
+    this.model = { year: parseInt(moment().format('YYYY')), 
+    // tslint:disable-next-line:radix
+    month: parseInt(moment().format('MM')), day: parseInt(moment().format('DD')) };
   }
-  
+
   isHovered = date => this.fromDate && !this.toDate && this.hoveredDate && after(date, this.fromDate) && before(date, this.hoveredDate);
   isInside = date => after(date, this.fromDate) && before(date, this.toDate);
   isFrom = date => equals(date, this.fromDate);

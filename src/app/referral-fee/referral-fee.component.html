@@ -10,11 +10,11 @@
           <div class="row">
             <div class="col-md-6">
               Pending Commission:
-              <strong class="text-primary">{{userCommission?.summary.pending|currency:"$"}}</strong>
+              <strong class="text-primary">{{userCommission?.summary.pending|currency:"$":'symbol':'0.0'}}</strong>
             </div>
             <div class="col-md-6">
               Received Commission:
-              <strong class="text-primary">{{userCommission?.summary.paid|currency:"$"}}</strong>
+              <strong class="text-primary">{{userCommission?.summary.paid|currency:"$":'symbol':'0.0'}}</strong>
             </div>
           </div>
         </div>
@@ -32,11 +32,11 @@
           <div class="row">
             <div class="col-md-6">
               Pending Commission:
-              <strong class="text-primary">{{userCommission?.summary.team.paid|currency:"$"}}</strong>
+              <strong class="text-primary">{{userCommission?.summary.team.paid|currency:"$":'symbol':'0.0'}}</strong>
             </div>
             <div class="col-md-6">
               Received Commission:
-              <strong class="text-primary">{{userCommission?.summary.team.paid|currency:"$"}}</strong>
+              <strong class="text-primary">{{userCommission?.summary.team.paid|currency:"$":'symbol':'0.0'}}</strong>
             </div>
           </div>
         </div>
@@ -51,8 +51,9 @@
       </div>
       <div class="card-body">
         <div class="card-block">
-          <ng2-smart-table [settings]="PendingCommissionTableSettings" [source]="PendingCommissionTableSource"></ng2-smart-table>
-
+          <div class="table-responsive">
+            <ng2-smart-table [settings]="PendingCommissionTableSettings" [source]="PendingCommissionTableSource"></ng2-smart-table>
+          </div>
         </div>
       </div>
     </div>
@@ -65,8 +66,9 @@
       </div>
       <div class="card-body">
         <div class="card-block">
-          <ng2-smart-table [settings]="ReceivedCommissionTableSettings" [source]="ReceivedCommissionTableSource"></ng2-smart-table>
-
+          <div class="table-responsive">
+            <ng2-smart-table [settings]="ReceivedCommissionTableSettings" [source]="ReceivedCommissionTableSource"></ng2-smart-table>
+          </div>
         </div>
       </div>
     </div>

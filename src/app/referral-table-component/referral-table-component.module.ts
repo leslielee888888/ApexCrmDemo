@@ -10,21 +10,30 @@ import { ViewAppFormRenderComponent } from './view-app-form-render/view-app-form
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { CommentComponent } from './comment/comment.component';
+import { CommentListModalComponent } from './comment-list-modal/comment-list-modal.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { ReferralTableCommentService } from '../service/referral-table-comment/referral-table-comment.service';
+import { ReferralTableEmailService } from '../service/referral-table-email/referral-table-email.service';
 
 @NgModule({
   imports: [
     CommonModule,
     NgbModule,
-    UiSwitchModule
+    UiSwitchModule,
+    Ng2SmartTableModule
   ],
   declarations: [CustomDatePickerComponent, DateRenderComponent, EmailMeCheckRenderComponent,
-    FullNameRenderComponent, LoanAmountRenderComponent, RecentContentComponent, ViewAppFormRenderComponent, CommentComponent],
+    FullNameRenderComponent, LoanAmountRenderComponent, RecentContentComponent, ViewAppFormRenderComponent
+    , CommentComponent, CommentListModalComponent],
   entryComponents: [CustomDatePickerComponent, DateRenderComponent, EmailMeCheckRenderComponent,
-    FullNameRenderComponent, LoanAmountRenderComponent, RecentContentComponent, ViewAppFormRenderComponent, CommentComponent
-  ],
+    FullNameRenderComponent, LoanAmountRenderComponent, RecentContentComponent, ViewAppFormRenderComponent
+    , CommentComponent, CommentListModalComponent],
   exports: [
     CustomDatePickerComponent, DateRenderComponent, EmailMeCheckRenderComponent,
-    FullNameRenderComponent, LoanAmountRenderComponent, RecentContentComponent, ViewAppFormRenderComponent, CommentComponent
+    FullNameRenderComponent, LoanAmountRenderComponent, RecentContentComponent, ViewAppFormRenderComponent
+    , CommentComponent, CommentListModalComponent],
+  providers: [
+    ReferralTableCommentService, ReferralTableEmailService
   ]
 })
 export class ReferralTableComponentModule { }

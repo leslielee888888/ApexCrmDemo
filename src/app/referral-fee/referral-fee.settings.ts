@@ -10,6 +10,7 @@ export const PendingCommissionTableSettings = {
         CreatedDate: {
             title: 'Submit Date',
             filter: false,
+            sortDirection: 'desc',
             width: '150px',
             type: 'custom',
             renderComponent: DateRenderComponent
@@ -23,7 +24,7 @@ export const PendingCommissionTableSettings = {
         FullName: {
             title: 'Applicant Name',
             filter: false,
-            width: '150px',
+            width: '200px',
             type: 'custom',
             renderComponent: FullNameRenderComponent
         },
@@ -45,7 +46,7 @@ export const PendingCommissionTableSettings = {
         }
     },
     attr: {
-        class: 'table table-responsive'
+        class: 'table table-responsive '
     },
     // edit: {
     //     editButtonContent: '<i class="ft-edit-2 info font-medium-1 mr-2"></i>'
@@ -71,6 +72,7 @@ export const ReceivedCommissionTableSettings = {
         CreatedDate: {
             title: 'Submit Date',
             filter: false,
+            sortDirection: 'desc',
             width: '150px',
             type: 'custom',
             renderComponent: DateRenderComponent
@@ -84,7 +86,7 @@ export const ReceivedCommissionTableSettings = {
         FullName: {
             title: 'Applicant Name',
             filter: false,
-            width: '150px',
+            width: '200px',
             type: 'custom',
             renderComponent: FullNameRenderComponent
         },

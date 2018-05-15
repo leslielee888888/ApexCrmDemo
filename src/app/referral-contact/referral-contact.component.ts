@@ -14,7 +14,7 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
 export class ReferralContactComponent implements OnInit {
 
   txtQuery: any;
-  private contactForm: FormGroup;
+  contactForm: FormGroup;
 
   constructor(private fb: FormBuilder, private referralContactService: ReferralContactService, private toastsManager: ToastsManager) {
   }

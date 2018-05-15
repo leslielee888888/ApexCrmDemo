@@ -1,5 +1,8 @@
+import { ReferralUserService } from './../../service/referral-user/referral-user.service';
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { ReferralAuthService } from '../../service/referral-auth/referral-auth.service';
+import { User } from '../../referral-entity/user';
+// import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-navbar',
@@ -8,22 +11,33 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
 export class NavbarComponent {
+    User: User;
     currentLang = 'en';
     toggleClass = 'ft-maximize';
-    constructor(public translate: TranslateService) {
-        const browserLang: string = translate.getBrowserLang();
-        translate.use(browserLang.match(/en|es|pt|de/) ? browserLang : 'en');
+    constructor(
+        // public translate: TranslateService
+        private referralAuth: ReferralAuthService,
+        private userService: ReferralUserService
+    ) {
+        // const browserLang: string = translate.getBrowserLang();
+        // translate.use(browserLang.match(/en|es|pt|de/) ? browserLang : 'en');
+        this.User = userService.getUser();
     }
 
     ChangeLanguage(language: string) {
-        this.translate.use(language);
+        // this.translate.use(language);
     }
 
     ToggleClass() {
         if (this.toggleClass === 'ft-maximize') {
             this.toggleClass = 'ft-minimize';
-        }
-        else
+        } else {
             this.toggleClass = 'ft-maximize'
+        }
+    }
+
+    logout() {
+        console.log("logout::::::::::");
+        this.referralAuth.logout();
     }
 }

@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title text-primary">Aussie Cash Loans - Referrer Profile</h4>
+  <h4 class="modal-title text-primary">{{company}} - Referrer Profile</h4>
   <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -33,7 +33,7 @@
   </p>
   <p class="md-1">
     <code class="valign-top">Image:</code>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.maxfinancialgroup.com.au/affiliate.php?partner={{trackID}}"
+    <img src="http://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.maxfinancialgroup.com.au/affiliate.php?partner={{trackID}}"
       alt="">
   </p>
   <p class="mb-0">
@@ -44,7 +44,7 @@
         <input #iframeUrl disabled value="<iframe src='http://www.maxfunding.com.au/application/affiliate-business-form.php?partner={{trackID}}' width='900px;' height='600px;'></iframe>"  aria-describedby="button-addon2" class="form-control" placeholder="Button on right" type="text">
         <div  class="input-group-append">
           <span  class="input-group-btn" id="button-addon2">
-            <button  (click)='onCopy()' class="btn btn-raised btn-primary" type="button"><i class="fa fa-clone"></i></button>
+            <button  (click)='onCopy()' class="btn btn-raised btn-primary" type="button" ngbTooltip="Click to copy link."  placement="top"><i class="fa fa-clone"></i></button>
           </span>
         </div>
       </div>

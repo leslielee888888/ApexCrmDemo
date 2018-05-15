@@ -16,7 +16,7 @@ export class DateRenderComponent implements ViewCell, OnInit {
 
   ngOnInit() {
     const day = moment(this.rowData.CreatedDate);
-    this.renderValue = day.format('DD-MM-YYYY');
+    this.renderValue = day.format('DD-MMM-YYYY');
   }
 
 }

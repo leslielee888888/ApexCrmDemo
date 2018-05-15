@@ -1,6 +1,6 @@
+import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { ViewCell } from 'ng2-smart-table';
-import { config } from 'app/config';
 
 @Component({
   selector: 'app-view-app-form-render',
@@ -17,7 +17,7 @@ export class ViewAppFormRenderComponent implements ViewCell, OnInit {
   }
 
   onClick() {
-    window.open(`${config.domain}form-view/auto-view?eapp_id=${this.rowData.eapp_id}`)
+    window.open(`${environment.baseApi}form-view/auto-view?eapp_id=${this.rowData.eapp_id}`)
   }
 
 }

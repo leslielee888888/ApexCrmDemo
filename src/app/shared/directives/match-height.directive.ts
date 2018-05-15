@@ -4,32 +4,35 @@ import {
 } from '@angular/core';
 
 @Directive({
+    // tslint:disable-next-line:directive-selector
     selector: '[matchHeight]'
 })
 export class MatchHeightDirective implements AfterViewInit {
     // class name to match height
     @Input()
-    matchHeight : string;
+    matchHeight: string;
 
     constructor(private el: ElementRef) {
     }
 
     ngAfterViewInit() {
         // call our matchHeight function here
-        setTimeout(() => { this.matchHeights(this.el.nativeElement, this.matchHeight )}, 300);
+        setTimeout(() => { this.matchHeights(this.el.nativeElement, this.matchHeight) }, 300);
     }
 
     matchHeights(parent: HTMLElement, className: string) {
         // match height logic here
 
+        // tslint:disable-next-line:curly
         if (!parent) return;
 
         // step 1: find all the child elements with the selected class name
         const children = parent.getElementsByClassName(className);
 
+        // tslint:disable-next-line:curly
         if (!children) return;
 
-        //Pixinvent - Match hight - fix --- comment below code
+        // Pixinvent - Match hight - fix --- comment below code
         Array.from(children).forEach((x: HTMLElement) => {
             x.style.height = 'initial';
         });
@@ -51,7 +54,7 @@ export class MatchHeightDirective implements AfterViewInit {
     @HostListener('window:resize')
     onResize() {
         // call our matchHeight function here
-        this.matchHeights(this.el.nativeElement, this.matchHeight );
+        this.matchHeights(this.el.nativeElement, this.matchHeight);
     }
 }
 

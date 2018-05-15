@@ -1,31 +1,37 @@
 <!--Login Page Starts-->
 <section id="login">
-  <div class="container-fluid">
-      <div class="row full-height-vh">
-          <div class="col-12 d-flex align-items-center justify-content-center">
-              <div class="card gradient-indigo-purple text-center width-400">
-                  <div class="card-img overlap">
-                      <img alt="element 06" class="mb-1" src="assets/img/portrait/avatars/avatar-08.png" width="190">
-                  </div>
-                  <div class="card-body">
-                      <div class="card-block">
-                          <h2 class="white">Login</h2>
-                          <form  (ngSubmit)="onSubmit()" #f="ngForm">
-                              <div class="form-group">
-                                  <div class="col-md-12">
-                                      <input type="email" #name="ngModel" class="form-control" name="inputEmail" id="inputEmail" placeholder="Email" [(ngModel)]="user.username" required>
-                                      <small class="form-text text-muted danger" *ngIf="name.invalid && (name.dirty || name.touched)">Please enter a valid email!</small>
-                                  </div>
-                              </div>
+    <div class="container-fluid">
+        <div class="row full-height-vh">
+            <div class="col-12 d-flex align-items-center justify-content-center">
+                <div class="width-400">
+                    <img class="full-width" src="https://www.maxfunding.com.au/images/maxfunding_logo_no_sub.svg" alt="">
+                    <div class="card gradient-indigo-purple text-center width-400">
 
-                              <div class="form-group">
-                                  <div class="col-md-12">
-                                      <input type="password" #password="ngModel" class="form-control" name="inputPass" id="inputPass" placeholder="Password" [(ngModel)]="user.password" required>
-                                      <small class="form-text text-muted danger" *ngIf="password.invalid && (password.dirty || password.touched)">Please enter a password!</small>
-                                  </div>
-                              </div>
+                        <div class="card-img overlap">
+                            <!-- <img alt="element 06" class="mb-1" src="https://www.maxfunding.com.au/images/maxfunding_logo_white_no_sub.svg" width="190"> -->
+                            <p class="font-medium-3" style="color:#fff">Referral Partner Portal</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-block">
+                                <!-- <h2 class="white">Login</h2> -->
+                                <form (ngSubmit)="onSubmit()" #f="ngForm">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <input type="email" #name="ngModel" class="form-control" name="inputEmail" id="inputEmail" placeholder="Email" [(ngModel)]="user.username"
+                                                required>
+                                            <small class="form-text text-muted danger" *ngIf="name.invalid && (name.dirty || name.touched)">Please enter a valid email!</small>
+                                        </div>
+                                    </div>
 
-                              <div class="form-group">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <input type="password" #password="ngModel" class="form-control" name="inputPass" id="inputPass" placeholder="Password" [(ngModel)]="user.password"
+                                                required>
+                                            <small class="form-text text-muted danger" *ngIf="password.invalid && (password.dirty || password.touched)">Please enter a password!</small>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="form-group">
                                   <div class="row">
                                       <div class="col-md-12">
                                           <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0 ml-3">
@@ -34,23 +40,29 @@
                                           </div>
                                       </div>
                                   </div>
-                              </div>
+                              </div> -->
 
-                              <div class="form-group">
-                                  <div class="col-md-12">
-                                      <button type="submit" [disabled]="f.invalid && f.dirty" class="btn btn-pink btn-block btn-raised">Submit</button>
-                                  </div>
-                              </div>
-                          </form>
-                      </div>
-                  </div>
-                  <div class="card-footer">
-                      <div class="float-left"><a (click)="onForgotPassword()" class="white">Recover Password</a></div>
-                      <div class="float-right"><a (click)="onRegister()" class="white">New User?</a></div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <button type="submit" [disabled]="f.invalid && f.dirty" class="btn btn-block btn-success">Login</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="float-left">
+                                <a (click)="onForgotPassword()" class="white">Forgot Password</a>
+                            </div>
+                            <div class="float-right">
+                                <a (click)="onRegister()" class="white">New User?</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <!--Login Page Ends-->

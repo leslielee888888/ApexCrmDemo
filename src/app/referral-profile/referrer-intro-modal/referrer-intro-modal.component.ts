@@ -9,6 +9,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 export class ReferrerIntroModalComponent implements OnInit {
   @ViewChild('iframeUrl') iframeUrl: ElementRef;
   @Input() trackID;
+  @Input() company;
 
   constructor(private ngbActiveModal: NgbActiveModal) { }
 

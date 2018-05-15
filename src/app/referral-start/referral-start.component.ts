@@ -1,4 +1,6 @@
+import { ReferralUserService } from './../service/referral-user/referral-user.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from '../referral-entity/user';
 
 @Component({
   selector: 'app-referral-start',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReferralStartComponent implements OnInit {
 
-  constructor() { } 
+  User: User;
+  constructor(private userSevice: ReferralUserService) {
+    this.User = this.userSevice.getUser();
+  }
   ngOnInit() {
   }
- 
- 
+
+
 }

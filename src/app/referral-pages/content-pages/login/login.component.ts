@@ -1,3 +1,4 @@
+import swal from 'sweetalert2';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../../../referral-entity/user';
@@ -15,9 +16,9 @@ import { Location } from '@angular/common';
 export class LoginComponent implements OnInit {
 
   @ViewChild('f') loginForm: NgForm;
-  private user = new User();
+  public user = new User();
 
-  constructor(private loginService: ReferralLoginService,private router:Router,private location:Location) { }
+  constructor(private loginService: ReferralLoginService, private router: Router, private location: Location) { }
 
   ngOnInit() {
   }
@@ -26,14 +27,29 @@ export class LoginComponent implements OnInit {
     console.log(this.user);
     this.loginService.doLogin(this.user).subscribe(data => {
       console.log(data);
-      if(data && data.loginStatus === 'client'){
+      if (data && data.status === 'Success') {
         this.router.navigate(['referral-dashboard'])
-        //this.location.go('referral-dashboard');
-      }
-      else if(data && data.loginStatus === 'admin'){
-
+        // this.location.go('referral-dashboard');
+      } else if (data && data.status === 'Fail') {
+        swal({
+          type: "warning",
+          title: 'Message',
+          text: 'Wrong username or password, please retry.',
+        })
       }
     });
+  }
+
+  onForgotPassword() {
+    swal({
+      type: "info",
+      title: 'FORGOTTEN YOUR PASSWORD?',
+      text: 'Please email us your username and registered email address and we\'ll send you the password shortly.',
+    })
+  }
+
+  onRegister() {
+    window.location.href = 'https://www.maxfunding.com.au/partner/#openDialogue';
   }
 
 }

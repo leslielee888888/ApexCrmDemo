@@ -22,8 +22,8 @@ export class ReferralFeeComponent implements OnInit {
   ReceivedCommissionTableSource: LocalDataSource;
   PendingCommissionTableSource: LocalDataSource;
   userCommission: any;
-  private PendingCommissionTableSettings = PendingCommissionTableSettings;
-  private ReceivedCommissionTableSettings = ReceivedCommissionTableSettings;
+  public PendingCommissionTableSettings = PendingCommissionTableSettings;
+  public ReceivedCommissionTableSettings = ReceivedCommissionTableSettings;
   constructor(private referralFesService: ReferralFeeService) {
     this.referralFesService.getUserCommission()
       .subscribe(data => {

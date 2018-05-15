@@ -1,3 +1,4 @@
+import { ReferralTableEmailService } from './../service/referral-table-email/referral-table-email.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

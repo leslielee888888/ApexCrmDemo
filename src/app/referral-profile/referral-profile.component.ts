@@ -13,7 +13,7 @@ import { NgForm, FormGroup } from '@angular/forms';
   styleUrls: ['./referral-profile.component.scss'],
 })
 export class ReferralProfileComponent implements OnInit, OnDestroy {
- 
+
   modalRef: NgbModalRef;
   User: any = {};
   @ViewChild('userForm') userForm: NgForm;
@@ -29,12 +29,13 @@ export class ReferralProfileComponent implements OnInit, OnDestroy {
       data && data.affiliates && data.affiliates.length > 0 && (this.User = data.affiliates[0]);
       const image = new Image();
       // tslint:disable-next-line:max-line-length
-      image.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.maxfinancialgroup.com.au/affiliate.php?partner=${this.User.trackID}`;
+      image.src = `http://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.maxfinancialgroup.com.au/affiliate.php?partner=${this.User.trackID}`;
     })
   }
 
   ngOnDestroy(): void {
-    this.modalRef.close();
+    // tslint:disable-next-line:no-unused-expression
+    this.modalRef && this.modalRef.close();
   }
 
   decoder(url) {
@@ -44,6 +45,7 @@ export class ReferralProfileComponent implements OnInit, OnDestroy {
   showReferrerIntro() {
     this.modalRef = this.modalService.open(ReferrerIntroModalComponent, { size: 'lg' });
     this.modalRef.componentInstance.trackID = this.User.trackID;
+    this.modalRef.componentInstance.company = this.User.company_name;
   }
 
   onSubmit() {
@@ -54,7 +56,7 @@ export class ReferralProfileComponent implements OnInit, OnDestroy {
         // tslint:disable-next-line:triple-equals
         if (data.trim() == 's') {
           this.toastrService.success('Save Success', 'Message');
-        // tslint:disable-next-line:triple-equals
+          // tslint:disable-next-line:triple-equals
         } else if (data.trim() == 'f') {
           this.toastrService.error('Save Fail', 'Message');
 
@@ -62,7 +64,7 @@ export class ReferralProfileComponent implements OnInit, OnDestroy {
       })
   }
 
-  readerFile(event) {
+  readerFile() {
     console.log(this.fileInput.nativeElement.files);
     const self = this;
     const files = this.fileInput.nativeElement.files;

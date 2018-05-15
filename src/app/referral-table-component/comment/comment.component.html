@@ -2,6 +2,9 @@
 <!-- <a class="btn btn-outline-info btn-fab btn-sm" (click)="onClick()"><i class="ft-edit"></i></a> -->
 
 <!-- <i class="font-large-1 ft-edit text-primary"></i> -->
-<a class="btn btn-outline-info btn-fab btn-sm mb-0" (click)="onClick()">
-    <i class="ft-edit"></i>
-</a>
+<div>
+    <a class="btn btn-outline-info btn-fab btn-sm mb-0" (click)="onClick()">
+        <i class="ft-edit"></i>
+    </a>
+    &nbsp;<span *ngIf="renderValue.totalComment>0" class="badge badge-pill badge-success">{{renderValue.totalComment}}</span>
+</div>

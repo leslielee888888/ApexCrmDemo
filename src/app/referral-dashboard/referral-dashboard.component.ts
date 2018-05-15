@@ -12,6 +12,7 @@ import { DateRenderComponent } from '../referral-table-component/date-render-com
 import { FullNameRenderComponent } from '../referral-table-component/full-name-render-component/full-name-render-component.component';
 import { LoanAmountRenderComponent } from '../referral-table-component/loan-amount-render-component/loan-amount-render-component.component';
 import { ViewAppFormRenderComponent } from '../referral-table-component/view-app-form-render/view-app-form-render.component';
+import { CommentComponent } from '../referral-table-component/comment/comment.component';
 
 @Component({
   selector: 'app-referral-dashboard',
@@ -23,10 +24,10 @@ export class ReferralDashboardComponent implements OnInit {
   select: any;
   selectOptions: any[];
 
-  private RecentApplicationUpdateTableSettings = RecentApplicationUpdateTableSettings;
-  private ApplicationsTableSettings = ApplicationsTableSettings;
-  private ApplicationsTableSource: LocalDataSource;
-  private RecentApplicationsTableSource: LocalDataSource;
+  public RecentApplicationUpdateTableSettings = RecentApplicationUpdateTableSettings;
+  public ApplicationsTableSettings = ApplicationsTableSettings;
+  public ApplicationsTableSource: LocalDataSource;
+  public RecentApplicationsTableSource: LocalDataSource;
 
   constructor(private service: RefferalDashboardService, private modalService: NgbModal) {
     this.selectOptions = [
@@ -75,32 +76,42 @@ export class ReferralDashboardComponent implements OnInit {
     ].map((v: any, i) => ({ ...v, type: i }))
     this.select = this.selectOptions[0];
 
-    this.ApplicationsTableSettings.columns.notify.onComponentInitFunction = (instance: EmailMeCheckRenderComponent) => {
-      instance.onSelected.subscribe(data => {
-        console.log(data);
-        console.log(this.service);
-        this.service.setAppNotify(data[1]).subscribe(() => {
-        });
-      })
-    }
+
   }
 
 
 
   ngOnInit() {
-    this.service.getApplicants(moment('2000-01-01').toDate(), moment().toDate())
+    this.service.getApplicants(this.selectOptions[4].startDate, this.selectOptions[4].endDate)
       .subscribe((data) => {
         if (data && data.affiliates) {
           this.ApplicationsTableSource = new LocalDataSource(data.affiliates);
         }
       })
-    this.service.getRecentApplication(moment('2000-01-01').toDate(), moment().toDate())
+    this.service.getRecentApplication(this.selectOptions[4].startDate, this.selectOptions[4].endDate)
       .subscribe((data) => {
         if (data && data.affiliates) {
           this.RecentApplicationsTableSource = new LocalDataSource(data.affiliates);
         }
       })
+    this.select = this.selectOptions[4];
 
+    this.ApplicationsTableSettings.columns.Comment.onComponentInitFunction = (instance: CommentComponent) => {
+      instance.addTotalComment.subscribe(data => {
+        instance.renderValue.totalComment = Number(instance.renderValue.totalComment) + 1;
+        this.ApplicationsTableSource.refresh();
+      })
+      instance.delTotalComment.subscribe(data => {
+        instance.renderValue.totalComment = Number(instance.renderValue.totalComment) - 1;
+        this.ApplicationsTableSource.refresh();
+      })
+    }
+    /* this.ApplicationsTableSettings.columns.notify.onComponentInitFunction = (instance: EmailMeCheckRenderComponent) => {
+      instance.onSelected.subscribe(data => {
+        this.emailService.setAppNotify(data[1]).subscribe(() => {
+        });
+      })
+    } */
   }
 
   onSelect(query) {
@@ -112,7 +123,7 @@ export class ReferralDashboardComponent implements OnInit {
             this.ApplicationsTableSource = new LocalDataSource(data.affiliates);
           }
         })
-    // tslint:disable-next-line:triple-equals
+      // tslint:disable-next-line:triple-equals
     } else if (query.type == 9) {
       const modalRef = this.modalService.open(CustomDatePickerComponent)
         .result.then(date => {

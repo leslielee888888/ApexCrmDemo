@@ -6,14 +6,14 @@ import { ViewCell } from 'ng2-smart-table';
   templateUrl: './full-name-render-component.component.html',
   styleUrls: ['./full-name-render-component.component.scss']
 })
-export class FullNameRenderComponent implements ViewCell,OnInit {
+export class FullNameRenderComponent implements ViewCell, OnInit {
   renderValue: any;
   value: string | number;
   rowData: any;
   constructor() { }
 
   ngOnInit() {
-    this.renderValue = `${this.rowData.FirstName} ${this.rowData.SurName}`;
+    /* this.renderValue = `${this.rowData.FirstName}${this.rowData.MiddleName && ' ' + this.rowData.MiddleName} ${this.rowData.SurName}`; */
   }
 
 }

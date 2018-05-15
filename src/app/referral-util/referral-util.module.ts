@@ -1,4 +1,3 @@
-import { ClickToCopyDirective } from './click-to-copy/click-to-copy.directive';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -6,9 +5,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule 
   ],
-  declarations: [ClickToCopyDirective],
+  declarations: [],
   exports: [
-    ClickToCopyDirective
+    
   ]
 })
 export class ReferralUtilModule { }

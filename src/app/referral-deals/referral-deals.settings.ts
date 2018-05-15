@@ -3,6 +3,7 @@ import { DateRenderComponent } from "../referral-table-component/date-render-com
 import { FullNameRenderComponent } from "../referral-table-component/full-name-render-component/full-name-render-component.component";
 import { LoanAmountRenderComponent } from "../referral-table-component/loan-amount-render-component/loan-amount-render-component.component";
 import { ViewAppFormRenderComponent } from "../referral-table-component/view-app-form-render/view-app-form-render.component";
+import { EmailMeCheckRenderComponent } from '../referral-table-component/email-me-check-render/email-me-check-render.component';
 
 
 export const ApplicationsListTableSettings = {
@@ -11,6 +12,7 @@ export const ApplicationsListTableSettings = {
         CreatedDate: {
             title: 'Date',
             filter: false,
+            sortDirection: 'desc',
             type: 'custom',
             renderComponent: DateRenderComponent,
             width: '150px'
@@ -22,37 +24,37 @@ export const ApplicationsListTableSettings = {
             type: 'custom',
             renderComponent: FullNameRenderComponent
         },
-        ReferrerVal: {
+       /*  ReferrerVal: {
             title: 'Referral',
             filter: false,
-        },
+        }, */
         DesiredAmount: {
-            title: 'Desired Loan Amount',
+            title: 'Loan Amount',
             filter: false,
             type: 'custom',
             renderComponent: LoanAmountRenderComponent
         },
-        PurposeSummary: {
+      /*   PurposeSummary: {
             title: 'Purpose',
             filter: false,
-        },
-        mc_final_status: {
+        }, */
+        /* mc_final_status: {
             title: 'Preliminary Result',
             filter: false,
             width: '150px'
-        },
+        }, */
         ReferrerCrmStatus: {
-            title: 'Verification',
+            title: 'Status',
             filter: false,
         },
-        ReferrerCrmAmount: {
+        /* ReferrerCrmAmount: {
             title: 'Offered Loan Amount',
             filter: false,
             type: 'custom',
             renderComponent: LoanAmountRenderComponent
-        },
+        }, */
         ViewAppForm: {
-            title: 'View App Form',
+            title: 'App Form',
             filter: false,
             type: 'custom',
             renderComponent: ViewAppFormRenderComponent
@@ -61,7 +63,15 @@ export const ApplicationsListTableSettings = {
             title: 'Comment',
             filter: false,
             type: 'custom',
-            renderComponent: CommentComponent
+            renderComponent: CommentComponent,
+            onComponentInitFunction: null
+        },
+        notify: {
+            title: 'Email me update',
+            filter: false,
+            type: 'custom',
+            renderComponent: EmailMeCheckRenderComponent,
+            onComponentInitFunction: null
         }
     },
     attr: {
