@@ -27,7 +27,7 @@
                     <label for="userinput2">Contact Person</label>
                     <input type="text" id="userinput2" class="form-control border-primary" name="contact_person" #contact_person="ngModel" [(ngModel)]="User.contact_person"
                       required>
-                    <small class="form-text text-muted danger" *ngIf="contact_person.invalid && (contact_person.dirty || contact_person.touched)">Please enter a contact name!</small>                    
+                    <code class="form-text" *ngIf="contact_person.invalid && (contact_person.dirty || contact_person.touched)">Please enter a contact name!</code>                    
                       
                   </div>
                 </div>
@@ -38,8 +38,8 @@
                   <div class="form-group">
                     <label for="userinput3">Contact Number</label>
                     <input type="text" id="userinput3" class="form-control border-primary" name="contact_number" #contact_number="ngModel" [(ngModel)]="User.contact_number"
-                      required>
-                    <small class="form-text text-muted danger" *ngIf="contact_number.invalid && (contact_number.dirty || contact_number.touched)">Please enter a contact number!</small>                    
+                      required appPhoneFormatter>
+                    <code class="form-text" *ngIf="contact_number.invalid && (contact_number.dirty || contact_number.touched)">Please enter a contact number!</code>                    
                       
                   </div>
                 </div>
@@ -47,7 +47,7 @@
                   <div class="form-group">
                     <label for="userinput4">Email</label>
                     <input type="text" id="userinput4" class="form-control border-primary" name="email" #email="ngModel" [(ngModel)]="User.email" required email>
-                    <small class="form-text text-muted danger" *ngIf="email.invalid && (email.dirty || email.touched)">Please enter a valid email!</small>                    
+                    <code class="form-text" *ngIf="email.invalid && (email.dirty || email.touched)">Please enter a valid email!</code>                    
                   </div>
                 </div>
               </div>

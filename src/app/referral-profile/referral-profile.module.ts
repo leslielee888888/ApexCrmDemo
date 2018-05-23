@@ -8,13 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'ng2-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReferrerIntroModalComponent } from './referrer-intro-modal/referrer-intro-modal.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ReferralProfileRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    SharedModule
   ],
   declarations: [ReferralProfileComponent, ReferrerIntroModalComponent],
   providers: [

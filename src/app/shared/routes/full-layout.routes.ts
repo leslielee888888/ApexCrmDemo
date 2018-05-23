@@ -38,5 +38,9 @@ export const Full_ROUTES: Routes = [
   {
     path: 'referral-profile',
     loadChildren: './referral-profile/referral-profile.module#ReferralProfileModule'
+  }, 
+  {
+    path: 'referral-lead',
+    loadChildren: './referral-lead/referral-lead.module#ReferralLeadModule'
   }
 ];

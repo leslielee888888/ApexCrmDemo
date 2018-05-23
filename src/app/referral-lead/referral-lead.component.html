@@ -1,0 +1,142 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title" id="basic-layout-colored-form-control">Lead Form</h4>
+        <p class="mb-0">Want us to contact the client directly to initiate the application?
+          <code> Complete the form below.</code>
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="px-3">
+
+          <!-- <form class="form" (ngSubmit)="onSubmit()" #leadNgForm="ngForm"> -->
+          <form class="form" (ngSubmit)="onSubmit()" [formGroup]='leadFormGroup'>
+            <div class="form-body">
+              <h4 class="form-section">
+                <i class="ft-info"></i> Personal Info</h4>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="userinput1">First Name
+                      <code><i class="icon-star"></i></code>
+                    </label>
+                    <input type="text" id="userinput1" class="form-control border-primary" placeholder='First Name' name="first_name" 
+                      [(ngModel)]="LeadForm.first_name" formControlName='first_name' required>
+                    <code class="form-text" *ngIf="leadFormGroup.controls.first_name.invalid && (leadFormGroup.controls.first_name.dirty || leadFormGroup.controls.first_name.touched)">Please enter a first name!</code>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="userinput2">Last Name
+                      <code><i class="icon-star"></i></code>
+
+                    </label>
+                    <input type="text" id="userinput2" class="form-control border-primary" placeholder='Last Name' name="last_name"
+                      [(ngModel)]="LeadForm.last_name" formControlName='last_name' required>
+                    <code class="form-text" *ngIf="leadFormGroup.controls.last_name.invalid && (leadFormGroup.controls.last_name.dirty || leadFormGroup.controls.last_name.touched)">Please enter a last name!</code>
+
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="userinput3">E-MAIL
+                      <code><i class="icon-star"></i></code>
+
+                    </label>
+                    <input type="text" id="userinput3" class="form-control border-primary" placeholder='email@gmail.com' name="email"
+                      [(ngModel)]="LeadForm.email" formControlName='email'>
+                    <code class="form-text" *ngIf="leadFormGroup.controls.email.invalid && (leadFormGroup.controls.email.dirty || leadFormGroup.controls.email.touched)">Please enter a correct email!</code>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="userinput4">Contact Number
+                      <code><i class="icon-star"></i></code>
+
+                    </label> 
+                    <input type="text" id="userinput4" class="form-control border-primary" placeholder='0400 000 000' name="daytime_phone"
+                     [(ngModel)]="LeadForm.daytime_phone" formControlName='daytime_phone' [appPhoneFormatter]='leadFormGroup.controls.daytime_phone'>
+                    <code class="form-text" *ngIf="leadFormGroup.controls.daytime_phone.invalid && (leadFormGroup.controls.daytime_phone.dirty || leadFormGroup.controls.daytime_phone.touched)">Please enter a correct contact number!</code>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="userinput5">Loan Amount
+                    <code><i class="icon-star"></i></code>
+                    </label>
+                    <div class="input-group mb-0">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                        <!-- <span class="input-group-text">{{(LeadForm.loan_amount?LeadForm.loan_amount:0) | currency:'$':'symbol':'0.0'}}</span> -->
+                      </div>
+                      <!-- <input class="form-control border-primary" type="text" id="userinput5" placeholder='eg.10000' name="loanamount" [(ngModel)]="LeadForm.loan_amount"
+                        #loanamount="ngModel" pattern="[0-9,]*" appCurrencyFormatter> -->
+                        <input class="form-control border-primary" type="text" id="userinput5" placeholder='eg.10000 at least 1000' name="loanamount" [(ngModel)]="LeadForm.loan_amount"
+                        formControlName='loan_amount' [appCurrencyFormatter]='leadFormGroup.controls.loan_amount' >
+                      <!-- <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                      </div> -->
+                    </div>
+                    <code class="form-text" *ngIf="leadFormGroup.controls.loan_amount.invalid && (leadFormGroup.controls.loan_amount.dirty || leadFormGroup.controls.loan_amount.touched)">Please enter a correct loan amount(at least 1000)!</code>
+                    <!-- <input class="form-control border-primary" type="text" id="userinput5" placeholder='eg.10000' name="loanamount" [(ngModel)]="LeadForm.loanamount"> -->
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="userinput6">ABN</label>
+                    <input class="form-control border-primary" type="text" id="userinput6" name="abn" [(ngModel)]="LeadForm.abn" formControlName='abn'>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Does Application Own Any Real Estate?</label>
+                    <select class="form-control border-primary" name="property_owner" id="" [(ngModel)]="LeadForm.property_owner" formControlName='property_owner'>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                      <option value="Not Sure">Not Sure</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="userinput8">Comment</label>
+                <textarea id="userinput8" rows="3" class="form-control border-primary" name="comment" [(ngModel)]="LeadForm.comment" formControlName='comment'></textarea>
+              </div>
+
+            </div>
+            <div class="form-actions pb-0">
+              <div class="row">
+                <div class="col-md-1 text-right">
+                  <i class="font-large-1 ft-info text-primary"></i>
+                </div>
+                <div class="col-md-11 ">
+                  <p class="font-small-3">Our team will contact the client and discuss about our funding solutions and provide client with short
+                    application form (Customise tracking link to ensure we know it’s from you).</p>
+                  <p class="font-small-3">Once application form is submitted, you would be able to track the client in your ‘Partner Portal’.</p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-actions right">
+              <!-- <button type="button" class="btn btn-raised btn-warning mr-1">
+                <i class="ft-x"></i> Cancel
+              </button> -->
+              <button type="submit" class="btn btn-raised btn-success" [disabled]="!leadFormGroup.valid || !leadFormGroup.dirty">
+                <i class="fa fa-check-square-o"></i> Submit
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
