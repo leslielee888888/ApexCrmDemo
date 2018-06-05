@@ -2,6 +2,8 @@ import { ReferralUserService } from './../../service/referral-user/referral-user
 import { Component } from '@angular/core';
 import { ReferralAuthService } from '../../service/referral-auth/referral-auth.service';
 import { User } from '../../referral-entity/user';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ChangepasswordModalComponent } from '../../referral-modal/changepassword-modal/changepassword-modal.component';
 // import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -17,7 +19,8 @@ export class NavbarComponent {
     constructor(
         // public translate: TranslateService
         private referralAuth: ReferralAuthService,
-        private userService: ReferralUserService
+        private userService: ReferralUserService,
+        private modal: NgbModal
     ) {
         // const browserLang: string = translate.getBrowserLang();
         // translate.use(browserLang.match(/en|es|pt|de/) ? browserLang : 'en');
@@ -39,5 +42,8 @@ export class NavbarComponent {
     logout() {
         console.log("logout::::::::::");
         this.referralAuth.logout();
+    }
+    changePassword() {
+        this.modal.open(ChangepasswordModalComponent)
     }
 }

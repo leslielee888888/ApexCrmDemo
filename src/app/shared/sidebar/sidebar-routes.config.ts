@@ -27,6 +27,15 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
     },
     {
+        path: '/referral-lead',
+        title: 'Lead Form',
+        icon: 'icon-book-open',
+        class: '', badge: '',
+        badgeClass: '',
+        isExternalLink: false,
+        submenu: []
+    },
+    {
         path: '/referral-fee',
         title: 'Commission Log',
         icon: 'ft-file-text',
@@ -73,6 +82,16 @@ export const ROUTES: RouteInfo[] = [
                 badgeClass: '',
                 isExternalLink: false,
                 submenu: []
+            },
+            {
+                path: '/referral-marketing',
+                title: 'Marketing Materials',
+                icon: '',
+                class: '',
+                badge: '',
+                badgeClass: '',
+                isExternalLink: false,
+                submenu: []
             }
         ]
     },
@@ -96,6 +115,6 @@ export const ROUTES: RouteInfo[] = [
                 submenu: []
             }
         ]
-    },
+    }
 
 ];

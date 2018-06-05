@@ -31,11 +31,20 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['referral-dashboard'])
         // this.location.go('referral-dashboard');
       } else if (data && data.status === 'Fail') {
-        swal({
-          type: "warning",
-          title: 'Message',
-          text: 'Wrong username or password, please retry.',
-        })
+        if (data.message !== 'Robot' && data.message !== 'f') {
+          swal({
+            type: "warning",
+            title: 'Message',
+            text: data.message,
+          })
+        } else {
+          swal({
+            type: "warning",
+            title: 'Message',
+            text: 'Wrong username or password, please retry.',
+          })
+        }
+
       }
     });
   }

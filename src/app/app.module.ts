@@ -28,7 +28,6 @@ import { ReferralUtilModule } from './referral-util/referral-util.module';
 import { ReferralUserService } from './service/referral-user/referral-user.service';
 import { ReferralAuthService } from './service/referral-auth/referral-auth.service';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-
 // export function createTranslateLoader(http: HttpClient) {
 //     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 //   }
@@ -38,7 +37,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
         AppComponent,
         FullLayoutComponent,
         // HorizontalLayoutComponent,
-        ContentLayoutComponent
+        ContentLayoutComponent,
     ],
     imports: [
         BrowserAnimationsModule,

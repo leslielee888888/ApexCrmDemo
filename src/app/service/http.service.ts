@@ -20,7 +20,7 @@ export class HttpService {
       responseType: 'text'
     }
   }
-  Get(url: string, params?: string): Observable<any> {
+  Get(url: string, params: string = ''): Observable<any> {
     if (this.referralAuth.isAuthenticated()) {
       this.headers = new HttpHeaders().set('Accept', 'application/text').set('Client-Security-Token', this.referralAuth.getToken());
       this.postHttpOptions = {
