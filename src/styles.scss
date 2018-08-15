@@ -33,3 +33,20 @@ $maxblur: #1e75bc;
 .ng2-smart-page-link.page-link{
     line-height: 17px;
 }
+
+
+@media screen and (max-width: 500px){
+    .app-sidebar{
+        box-shadow: none !important;
+    }
+    .content-wrapper{
+        padding: 0;
+    }
+    .container-fluid{
+        padding: 0;
+        overflow: hidden;
+    }
+}
+.tip-bg{
+    background-color: #bbf9bb;
+}
