@@ -10,7 +10,7 @@
       <div class="card-body">
         <div class="px-3">
 
-          <form class="form" (ngSubmit)="onSubmit()" #userForm="ngForm" >
+          <form class="form" #userForm="ngForm">
             <div class="form-body">
               <h4 class="form-section">
                 <i class="ft-info"></i> About User</h4>
@@ -27,8 +27,8 @@
                     <label for="userinput2">Contact Person</label>
                     <input type="text" id="userinput2" class="form-control border-primary" name="contact_person" #contact_person="ngModel" [(ngModel)]="User.contact_person"
                       required>
-                    <code class="form-text" *ngIf="contact_person.invalid && (contact_person.dirty || contact_person.touched)">Please enter a contact name!</code>                    
-                      
+                    <code class="form-text" *ngIf="contact_person.invalid && (contact_person.dirty || contact_person.touched)">Please enter a contact name!</code>
+
                   </div>
                 </div>
               </div>
@@ -38,16 +38,17 @@
                   <div class="form-group">
                     <label for="userinput3">Contact Number</label>
                     <input type="text" id="userinput3" class="form-control border-primary" name="contact_number" #contact_number="ngModel" [(ngModel)]="User.contact_number"
-                      required appPhoneFormatter>
-                    <code class="form-text" *ngIf="contact_number.invalid && (contact_number.dirty || contact_number.touched)">Please enter a contact number!</code>                    
-                      
+                      required appFormatter formatType='phone'>
+                    <code class="form-text" *ngIf="contact_number.invalid && (contact_number.dirty || contact_number.touched)">Please enter a contact number!</code>
+
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="userinput4">Email</label>
-                    <input type="text" id="userinput4" class="form-control border-primary" name="email" #email="ngModel" [(ngModel)]="User.email" required email>
-                    <code class="form-text" *ngIf="email.invalid && (email.dirty || email.touched)">Please enter a valid email!</code>                    
+                    <input type="text" id="userinput4" class="form-control border-primary" name="email" #email="ngModel" [(ngModel)]="User.email"
+                      required email>
+                    <code class="form-text" *ngIf="email.invalid && (email.dirty || email.touched)">Please enter a valid email!</code>
                   </div>
                 </div>
               </div>
@@ -69,7 +70,7 @@
                     <label for="userinput4">Referrer Intro</label>
                     <!-- <input type="text" id="userinput4" class="form-control border-primary" name="nickname" [(ngModel)]="User.reportPeriod"  required> -->
                     <p>
-                        <a href="javascript:void(0)" class="btn btn-raised btn-primary" (click)='showReferrerIntro()'>Referrer Intro</a>
+                      <a href="javascript:void(0)" class="btn btn-raised btn-primary" (click)='showReferrerIntro()'>Referrer Intro</a>
                     </p>
                   </div>
                 </div>
@@ -78,7 +79,9 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="userinput4">Payment Method</label>
+                    <h4 class="form-section">
+                      <i class="fab fa-cc-amazon-pay"></i> Payment Method</h4>
+                    <!-- <label for="userinput4">Payment Method</label> -->
                     <p class=""> Please email us with your BSB and Account to
                       <a href="mailto:Partners@MaxFunding.com.au">Partners@MaxFunding.com.au</a>
                     </p>
@@ -86,39 +89,41 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-8">
-                  <!-- <fieldset class="form-group">
-                        <label for="basicInputFile">Change Company Logo</label>
-                        <input type="file" class="form-control-file" id="basicInputFile">
-                    </fieldset> -->
+                <div class="col-md-12">
                   <fieldset class="form-group mb-0">
-                    <label for="file">Customise your application form with your logo</label>
-                    <!-- <label class="custom-file center-block d-block">
-                          <input type="file" id="file" class="custom-file-input">
-                          <span class="custom-file-control"></span>
-      </label> -->
+                    <h4 class="form-section">
+                      <i class="far fa-image"></i> Customise Your Application Form With Your Logo</h4>
                     <div class="mb-2">
                       <img class="company-logo" [src]="decoder(User.company_logo)" alt="">
                     </div>
-                    <fieldset class="form-group mb-0">
-                        <label for="basicInputFile">Change Company Logo</label>
-                        <input type="file" class="form-control-file" id="basicInputFile" name="file" #file (change)="readerFile()" ngModel [ngModelOptions]="{company_logo:User.company_logo}">
-                    </fieldset>
-                    <!-- <div class="custom-file center-block d-block">
-                      <input type="file" class="custom-file-input" id="inputGroupFile01" name="file" #file (change)="readerFile()">
-                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                    </div> -->
+                  </fieldset>
+                  <fieldset class="form-group mb-0">
+                    <label>
+                      Change Company Logo</label>
+                    <input type="file" class="form-control-file" id="basicInputFile" name="file" #file (change)="readerFile()" ngModel [ngModelOptions]="{company_logo:User.company_logo}">
+                  </fieldset>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <fieldset class="form-group mb-0 mt-3">
+                      <h4 class="form-section">
+                        <i class="far fa-envelope"></i> Email Notification For Each Application's Update</h4>
+                      <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                        <input type="checkbox" class="custom-control-input" id="customControlInline"   name="notify_all_app" (change)='onAllEmailMeChange()' [checked]="User.notify_all_app == 1">
+                        <label class="custom-control-label" for="customControlInline">Email me All update</label>
+                      </div>
                   </fieldset>
                 </div>
               </div>
             </div>
-
             <div class="form-actions right">
               <!-- <button type="button" class="btn btn-raised btn-warning mr-1">
                 <i class="ft-x"></i> Cancel
               </button> -->
-              <button type="submit"  [disabled]="!userForm.form.valid || !userForm.dirty" class="btn btn-raised btn-primary">
-                <i class="fa fa-check-square-o"></i> Save
+
+              <button type="button" (click)='onSubmit()' [disabled]="!userForm.form.valid || !userForm.dirty" class="btn btn-raised btn-success">
+                <i class="far fa-check-square"></i> Submit
               </button>
             </div>
           </form>

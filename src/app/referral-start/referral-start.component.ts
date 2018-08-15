@@ -13,8 +13,11 @@ export class ReferralStartComponent implements OnInit {
   constructor(private userSevice: ReferralUserService) {
     this.User = this.userSevice.getUser();
   }
+
   ngOnInit() {
   }
 
-
+  StartApplication() {
+    window.open('https://maxloans.com.au/application/restart?Purpose=Business&partner=' + this.User.trackID + '&agent=true');
+  }
 }

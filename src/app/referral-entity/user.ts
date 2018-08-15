@@ -16,5 +16,6 @@ export class User {
     public status?: string;
     public trackID?: string;
     public refCode?: string;
+    public portal_term_condition?: string;
     // constructor(public username?: string, public password?: string, public token?: string) { };
 }

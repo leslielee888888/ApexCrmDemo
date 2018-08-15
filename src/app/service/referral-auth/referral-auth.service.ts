@@ -6,7 +6,7 @@ export class ReferralAuthService {
   private token: string;
 
   constructor(private router: Router) {
-    const ReferralToken = sessionStorage.getItem('ReferralToken')
+    const ReferralToken = sessionStorage.getItem('ReferralToken');
     if (ReferralToken) {
       this.token = ReferralToken;
     }

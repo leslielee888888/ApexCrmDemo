@@ -8,6 +8,8 @@ import * as moment from 'moment';
 import { CustomDatePickerComponent } from '../referral-table-component/custom-date-picker/custom-date-picker.component';
 import { EmailMeCheckRenderComponent } from '../referral-table-component/email-me-check-render/email-me-check-render.component';
 import { ReferralTableEmailService } from '../service/referral-table-email/referral-table-email.service';
+import { ReferralUserService } from '../service/referral-user/referral-user.service';
+import { mergeMap, map } from '../../../node_modules/rxjs/operators';
 
 @Component({
   selector: 'app-referral-deals',
@@ -20,39 +22,8 @@ export class ReferralDealsComponent implements OnInit {
   select: any;
   public ApplicationsListTableSource: LocalDataSource;
   public ApplicationsListTableSettings = ApplicationsListTableSettings;
-
-
-  ngOnInit(): void {
-    this.select = this.selectOptions[4]
-    this.referralDealsService.getApplicantList(this.select.startDate, this.select.endDate)
-      .subscribe(data => {
-        console.log(data);
-        // tslint:disable-next-line:no-unused-expression
-        data && data.affiliates && (this.ApplicationsListTableSource = new LocalDataSource(data.affiliates));
-        // if (data && data.affiliates) {
-        //   this.ApplicationsListTableSource = new LocalDataSource(data.affiliates);
-        // }
-      })
-    this.ApplicationsListTableSettings.columns.Comment.onComponentInitFunction = (instance: CommentComponent) => {
-      instance.addTotalComment.subscribe(data => {
-        instance.renderValue.totalComment = Number(instance.renderValue.totalComment) + 1;
-        this.ApplicationsListTableSource.refresh();
-      })
-      instance.delTotalComment.subscribe(data => {
-        instance.renderValue.totalComment = Number(instance.renderValue.totalComment) - 1;
-        this.ApplicationsListTableSource.refresh();
-      })
-    }
-    /* this.ApplicationsListTableSettings.columns.notify.onComponentInitFunction = (instance: EmailMeCheckRenderComponent) => {
-      instance.onSelected.subscribe(data => {
-        this.emailService.setAppNotify(data[1]).subscribe(() => {
-        });
-      })
-    } */
-  }
-
   constructor(private referralDealsService: ReferralDealsService
-    , private modalService: NgbModal) {
+    , private modalService: NgbModal, private userService: ReferralUserService) {
     this.selectOptions = [
       {
         label: "ALL",
@@ -98,9 +69,49 @@ export class ReferralDealsComponent implements OnInit {
       }
     ].map((v: any, i) => ({ ...v, type: i }))
     this.select = this.selectOptions[0];
-    console.log(this.selectOptions);
+    
 
   }
+
+  ngOnInit(): void {
+    this.select = this.selectOptions[4]
+    this.referralDealsService.getApplicantList(this.select.startDate, this.select.endDate).pipe(mergeMap((r) => {
+      return this.userService.getProfile().pipe(map(_r => ({
+        ...r, ..._r
+      })))
+    }))
+      .subscribe(data => {
+        
+        // tslint:disable-next-line:no-unused-expression
+        // data && data.affiliates && (this.ApplicationsListTableSource = new LocalDataSource(data.affiliates));
+        // if (data && data.affiliates) {
+        //   this.ApplicationsListTableSource = new LocalDataSource(data.affiliates);
+        // }
+        if (data && data.affiliates) {
+          const _val = data.affiliates.map(r => ({ ...r, notify_all_app: data.notify_all_app }));
+          
+          this.ApplicationsListTableSource = new LocalDataSource(_val);
+        }
+      })
+    this.ApplicationsListTableSettings.columns.Comment.onComponentInitFunction = (instance: CommentComponent) => {
+      instance.addTotalComment.subscribe(data => {
+        instance.renderValue.totalComment = Number(instance.renderValue.totalComment) + 1;
+        this.ApplicationsListTableSource.refresh();
+      })
+      instance.delTotalComment.subscribe(data => {
+        instance.renderValue.totalComment = Number(instance.renderValue.totalComment) - 1;
+        this.ApplicationsListTableSource.refresh();
+      })
+    }
+    /* this.ApplicationsListTableSettings.columns.notify.onComponentInitFunction = (instance: EmailMeCheckRenderComponent) => {
+      instance.onSelected.subscribe(data => {
+        this.emailService.setAppNotify(data[1]).subscribe(() => {
+        });
+      })
+    } */
+  }
+
+
 
   onSelect(query) {
     if (query.type !== 9) {
@@ -116,7 +127,7 @@ export class ReferralDealsComponent implements OnInit {
     } else if (query.type === 9) {
       const modalRef = this.modalService.open(CustomDatePickerComponent)
         .result.then(date => {
-          console.log(date);
+          
           if (date === 'close') { return; }
           this.referralDealsService.getApplicantList(moment(date.startDate).toDate(), moment(date.endDate).toDate())
             .subscribe((data) => {
@@ -127,7 +138,7 @@ export class ReferralDealsComponent implements OnInit {
         })
     }
 
-    console.log(query);
+    
   }
 
 

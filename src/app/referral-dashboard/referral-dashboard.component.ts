@@ -13,6 +13,9 @@ import { FullNameRenderComponent } from '../referral-table-component/full-name-r
 import { LoanAmountRenderComponent } from '../referral-table-component/loan-amount-render-component/loan-amount-render-component.component';
 import { ViewAppFormRenderComponent } from '../referral-table-component/view-app-form-render/view-app-form-render.component';
 import { CommentComponent } from '../referral-table-component/comment/comment.component';
+import { ReferralUserService } from '../service/referral-user/referral-user.service';
+import { Observable, Observer, interval, timer } from '../../../node_modules/rxjs';
+import { mergeMap, map } from '../../../node_modules/rxjs/operators';
 
 @Component({
   selector: 'app-referral-dashboard',
@@ -28,8 +31,11 @@ export class ReferralDashboardComponent implements OnInit {
   public ApplicationsTableSettings = ApplicationsTableSettings;
   public ApplicationsTableSource: LocalDataSource;
   public RecentApplicationsTableSource: LocalDataSource;
+  user: any;
 
-  constructor(private service: RefferalDashboardService, private modalService: NgbModal) {
+  constructor(private service: RefferalDashboardService, private modalService: NgbModal, private userService: ReferralUserService) {
+    this.user = this.userService.getUser();
+    
     this.selectOptions = [
       {
         label: "ALL",
@@ -82,16 +88,24 @@ export class ReferralDashboardComponent implements OnInit {
 
 
   ngOnInit() {
-    this.service.getApplicants(this.selectOptions[4].startDate, this.selectOptions[4].endDate)
+    this.service.getApplicants(this.selectOptions[4].startDate, this.selectOptions[4].endDate).pipe(mergeMap((r) => {
+      return this.userService.getProfile().pipe(map(_r => ({
+        ...r, ..._r
+      })))
+    }))
       .subscribe((data) => {
+        
         if (data && data.affiliates) {
-          this.ApplicationsTableSource = new LocalDataSource(data.affiliates);
+          const _val = data.affiliates.map(r => ({ ...r, notify_all_app: data.notify_all_app }));
+          
+          this.ApplicationsTableSource = new LocalDataSource(_val);
         }
       })
     this.service.getRecentApplication(this.selectOptions[4].startDate, this.selectOptions[4].endDate)
       .subscribe((data) => {
         if (data && data.affiliates) {
           this.RecentApplicationsTableSource = new LocalDataSource(data.affiliates);
+
         }
       })
     this.select = this.selectOptions[4];
@@ -106,6 +120,12 @@ export class ReferralDashboardComponent implements OnInit {
         this.ApplicationsTableSource.refresh();
       })
     }
+    /*  this.ApplicationsTableSettings.columns.notify.onComponentInitFunction = (instance: EmailMeCheckRenderComponent) => {
+       instance.onRefresh.subscribe(r => {
+         
+         this.ApplicationsTableSource.refresh();
+       })
+     } */
     /* this.ApplicationsTableSettings.columns.notify.onComponentInitFunction = (instance: EmailMeCheckRenderComponent) => {
       instance.onSelected.subscribe(data => {
         this.emailService.setAppNotify(data[1]).subscribe(() => {
@@ -127,7 +147,7 @@ export class ReferralDashboardComponent implements OnInit {
     } else if (query.type == 9) {
       const modalRef = this.modalService.open(CustomDatePickerComponent)
         .result.then(date => {
-          console.log(date);
+          
           // tslint:disable-next-line:triple-equals
           if (date == 'close') { return; }
           this.service.getApplicants(moment(date.startDate).toDate(), moment(date.endDate).toDate())
@@ -139,7 +159,7 @@ export class ReferralDashboardComponent implements OnInit {
         })
     }
 
-    console.log(query);
+    
   }
 
 

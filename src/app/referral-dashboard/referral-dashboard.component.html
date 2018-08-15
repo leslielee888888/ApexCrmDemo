@@ -2,6 +2,24 @@
   referral-dashboard works!
 </p> -->
 <div class="row">
+  <div class="col-md-8 col-sm-12">
+    <div class="card tip-bg">
+      <div class="card-header">
+        <h4 class="card-title text-primary">
+          <i class="fas fa-exclamation-circle"></i>&nbsp;Save Time & Improve your Conversion!</h4>
+      </div>
+      <div class="card-body">
+        <div class="card-block text-muted">
+          Hi {{user.contact.split(' ')[0]}}, did you know that you can easily allow your clients to submit their applications directly to us, simply
+          by adding our referral form to your website? You don't need to be tech savvy to do this – just check out our
+          <a [routerLink]="['/referral-integration']">Integration Page
+          </a>. Also, do have a look at our DIY <a [routerLink]="['/referral-banner']">Marketing Pages</a> to help you market to your clients.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-4 col-sm-12">
     <div class="card">
       <div class="card-header">
@@ -34,7 +52,7 @@
             </div>
 
           </div>
-           <ng2-smart-table [settings]="ApplicationsTableSettings" [source]="ApplicationsTableSource"></ng2-smart-table>
+          <ng2-smart-table [settings]="ApplicationsTableSettings" [source]="ApplicationsTableSource"></ng2-smart-table>
         </div>
       </div>
     </div>

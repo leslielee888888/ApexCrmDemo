@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpService } from '../http.service';

@@ -1,10 +1,30 @@
 <h4 class="card-title mt-3 mb-1  text-primary">
     <i class="fa fa-download"></i> Add Banner to your website</h4>
-<div class="row">
+<div class="row mb-3">
     <div class="col-12">
         <div class="card-deck-wrapper">
             <div class="card-deck">
-                <div class="card">
+                <div class="card" *ngFor='let banner of banners'>
+                    <div class="card-body">
+                        <a href="{{banner.imgurl}}" target="blank">
+                            <img class="card-img-top img-fluid" src="{{banner.imgurl}}" alt="Card image cap" />
+                        </a>
+                        <div class="card-block">
+                            <p class="card-title light brown mb-3">{{banner.title}}</p>
+                            <p class="card-text">
+                                <small>{{banner.subtitle}}</small>
+                            </p>
+                            <div class="clearfix">
+                                <a href="{{banner.download}}" class="card-link blue float-left">Download Set</a>
+                                <a href="{{banner.previewUrl}}" target="blank">
+                                    <button class="btn btn-raised btn-primary float-right">
+                                        <i class="far fa-eye"></i> Preview</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="card">
                     <div class="card-body">
                         <img class="card-img-top img-fluid" src="referral-asset/images/next-big-idea-520x272.png" alt="Card image cap" />
                         <div class="card-block">
@@ -50,7 +70,7 @@
                         </p>
                         <a href="https://maxloans.com.au/referral-public/img/banner/opportunity.zip" class="card-link blue">Download Set</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

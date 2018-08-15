@@ -8,3 +8,16 @@
 .btn-success{
     color: #fff !important;
 }
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
+    background-color:#009da0;
+}
+.custom-control-label{
+    color:#fff;
+    position: relative;
+    &:before{
+        left: -1.5rem;
+    }
+    &:after{
+        left: -1.5rem;
+    }
+}

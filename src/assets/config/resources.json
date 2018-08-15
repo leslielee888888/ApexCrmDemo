@@ -1,0 +1,66 @@
+{
+    "marketing_materials": {
+        "content": [
+            {
+                "title":"Next-Gen Direct Mailing Tips",
+                "download":"http://maxloans.com.au/pdf/18-0518 Referral Program Direct Mail.pdf",
+                "imgurl":"assets/img/materials/18-0518-Referral-Program-Direct-Mail.jpg"
+            },
+            {
+                "title":"Break-thru Marketing Ideas",
+                "download":"http://maxloans.com.au/pdf/18-0518 Referral Program DIY Marketing.pdf",
+                "imgurl":"assets/img/materials/18-0518-Referral-Program-DIY-Marketing.jpg"
+            }
+        ]
+    },
+    "case_studies":{
+        "content": [
+            {
+                "title":"Case Studies",
+                "download":"http://maxloans.com.au/pdf/18-0511 Case Studies.pdf",
+                "imgurl":"assets/img/materials/18-0511-Case-Studies.jpg"
+            }
+        ]
+    },
+    "brochure":{
+        "content": [
+            {
+                "title":"Referral Program Max Funding Brochure",
+                "download":"http://maxloans.com.au/pdf/18-0525 Referral Program Max Funding Brochure.pdf",
+                "imgurl":"assets/img/materials/18-0525 Referral Program Max Funding Brochure.jpg"
+            }
+        ]
+    },
+    "add_banner":{
+        "content":[
+            {
+                "title":"Next big idea",
+                "subtitle":"Sizes: 400x120, 441x220, 520x272, 810x810, 1200x672.",
+                "download":"https://maxloans.com.au/referral-public/img/banner/next-big-idea.zip",
+                "imgurl":"referral-asset/images/next-big-idea-520x272.png",
+                "previewUrl":"https://maxloans.com.au/referral-preview/banner1.html"
+            },
+            {
+                "title":"Same day funding",
+                "subtitle":"Sizes: 400x120, 441x220, 520x272, 810x810, 1200x672.",
+                "download":"https://maxloans.com.au/referral-public/img/banner/5mins.zip",
+                "imgurl":"referral-asset/images/5mins-520x272.png",
+                "previewUrl":"https://maxloans.com.au/referral-preview/banner2.html"
+            },
+            {
+                "title":"Fast funding",
+                "subtitle":"Sizes: 400x120, 441x220, 520x272, 810x810, 1200x672.",
+                "download":"https://maxloans.com.au/referral-public/img/banner/fast-funding.zip",
+                "imgurl":"referral-asset/images/fast-funding-521x272.png",
+                "previewUrl":"https://maxloans.com.au/referral-preview/banner3.html"
+            },
+            {
+                "title":"Never miss an opportunity",
+                "subtitle":"Sizes: 400x120, 441x220, 520x272, 810x810, 1200x672.",
+                "download":"https://maxloans.com.au/referral-public/img/banner/opportunity.zip",
+                "imgurl":"referral-asset/images/opportunity-521x272.png",
+                "previewUrl":"https://maxloans.com.au/referral-preview/banner4.html"
+            }
+        ]
+    }
+}

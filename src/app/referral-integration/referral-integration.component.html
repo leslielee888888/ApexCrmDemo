@@ -1,0 +1,171 @@
+<div class="row">
+  <div class="col-md-6 col-sm-12">
+    <div class="card tip-bg">
+      <div class="card-header">
+        <h4 class="card-title text-primary">
+          <i class="fas fa-exclamation-circle"></i>&nbsp;Need A Hand?</h4>
+      </div>
+      <div class="card-body">
+        <div class="card-block text-muted">
+          If you need help with integration or you would like a custom solution that fits your business, please feel free to contact
+          our Partner Referral Team on 1300 411 411 (Ext: 115) or email to <a href="mailto:Partners@MaxFunding.com.au">Partners@MaxFunding.com.au</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <!--List Group starts-->
+    <section id="list">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">
+            <i class="ft-aperture"></i>Website Integration</h4>
+        </div>
+        <div class="card-body">
+          <div class="card-block">
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="text-uppercase card-title">1.LINK TO OUR APPLICATION FORM</h5>
+                </div>
+                <p class="mb-3">Add the link below to your website's business loan page 'Apply Now' button, email marketing or other marketing
+                  materials.
+                </p>
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                  <div class="form-group">
+                    <a class="input-group mb-0" href="javascript:void(0);" ngbTooltip="Click to copy link." placement="top" [appClickToCopy]='copyRefNormal'>
+                      <input #copyRefNormal aria-describedby="button-addon4" class="form-control small" disabled placeholder="Button on right"
+                        type="text" value="https://maxloans.com.au/app?p={{User.trackID}}">
+                      <div class="input-group-append">
+                        <span class="input-group-btn" id="button-addon4">
+                          <button class="btn btn-raised btn-primary" type="button">
+                            <i class="fa fa-clone"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="text-center">
+                    <a href="https://maxloans.com.au/referral-preview/applynow.html" target="blank">
+                      <button class="btn btn-raised btn-success">Demo Page&nbsp;
+                        <i class="fas fa-external-link-alt"></i>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="text-uppercase card-title">2.Link to our website</h5>
+                </div>
+                <p class="mb-3">This is your unique partner referral URL to our website. There could be clients that would like to learn
+                  more about our products before applying; you can direct them to our home page. If client do apply, we can
+                  track the referral it’s from you.</p>
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                  <fieldset class="form-group">
+                    <div class="input-group mb-0" [appClickToCopy]='copyRef2' ngbTooltip="Click to copy link." placement="top">
+                      <input #copyRef2 aria-describedby="button-addon4" class="form-control small" disabled placeholder="Button on right" type="text"
+                        value="https://www.maxfunding.com.au/?p={{User.company}}">
+                      <div class="input-group-append">
+                        <span class="input-group-btn" id="button-addon4">
+                          <button class="btn btn-raised btn-primary" type="button">
+                            <i class="fa fa-clone"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </li>
+              <li class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="text-uppercase card-title">3.Referral form embed into your website</h5>
+                </div>
+                <p class="mb-3">Why manually handle the applications when referral can be automated via your website.</p>
+                <div class="card-text">
+                  <ul class="list-style-circle">
+                    <li>Follow these steps:
+                      <ul class="list-style-square">
+                        <li>Copy and paste the HTML code to the page you’d like the form to appear. If you're unfamiliar with
+                          how to do this, you may need the help of your web site developer</li>
+                        <li>When a customer completes and submits the form, the referral will appear as a new lead in the Partner
+                          Portal.
+                        </li>
+                        <li>Once submitted, our team will reach out to the applicant and help them complete the process as per
+                          normal; we’ll keep you posted throughout the process to ensure you’re updated with progress.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div class="col-xl-12 col-lg-12 col-md-12">
+                    <fieldset class="form-group">
+                      <label for="withlogo">With Logo</label>
+                      <div class="input-group" ngbTooltip="Click to copy link." placement="top" [appClickToCopy]='copyRef3'>
+                        <input #copyRef3 aria-describedby="button-addon4" disabled class="form-control small" placeholder="Button on right" type="text"
+                          value="<iframe src='https://maxloans.com.au/application/restart?Purpose=business&partner={{User.trackID}}' width='900px;' height='600px;'></iframe>">
+                        <div class="input-group-append">
+                          <span class="input-group-btn" id="button-addon4">
+                            <button class="btn btn-raised btn-primary" type="button">
+                              <i class="fa fa-clone"></i>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <div class="text-center">
+                        <button class="btn btn-raised btn-success" (click)="preview(false)">Demo Page&nbsp;
+                            <i class="fas fa-external-link-alt"></i>
+                          </button>
+                      <!-- <button class="btn btn-raised btn-primary" (click)="preview(false)">
+                        <i class="far fa-eye"></i> Preview</button> -->
+                    </div>
+                  </div>
+                  <div class="col-xl-12 col-lg-12 col-md-12">
+                    <fieldset class="form-group">
+                      <label for="withlogo">No Logo</label>
+                      <div class="input-group" [appClickToCopy]='copyRef4' ngbTooltip="Click to copy link." placement="top">
+                        <input #copyRef4 aria-describedby="button-addon4" class="form-control small" disabled placeholder="Button on right" type="text"
+                          value="<iframe src='https://maxloans.com.au/application/restart?NoLogo=true&Purpose=business&partner={{User.trackID}}' width='900px;' height='600px;' frameBorder='0' ></iframe>">
+                        <div class="input-group-append">
+                          <span class="input-group-btn" id="button-addon4">
+                            <button class="btn btn-raised btn-primary" type="button">
+                              <i class="fa fa-clone"></i>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <div class="text-center">
+                        <button class="btn btn-raised btn-success" (click)="preview(true)">Demo Page&nbsp;
+                          <i class="fas fa-external-link-alt"></i>
+                        </button>
+                      <!-- <button class="btn btn-raised btn-primary" (click)="preview(true)">
+                        <i class="far fa-eye"></i> Preview</button> -->
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--List Group starts-->
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title text-primary" id="modal-basic-title">Preview</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <iframe [src]='URL' width='100%' style='height: calc(100vh - 200px) ;' frameBorder='0'></iframe>
+  </div>
+  <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+    </div> -->
+</ng-template>

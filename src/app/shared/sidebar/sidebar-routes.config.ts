@@ -1,8 +1,17 @@
 import { RouteInfo } from './sidebar.metadata';
 
 // Sidebar menu Routes and data
-export const ROUTES: RouteInfo[] = [
-
+export const ROUTES: RouteInfo[] = [,
+    {
+        path: '/referral-start',
+        title: 'Start Referral',
+        icon: '',
+        class: '',
+        badge: '',
+        badgeClass: '',
+        isExternalLink: false,
+        submenu: []
+    },
     {
         path: '/referral-dashboard',
         title: 'Dashboard',
@@ -17,20 +26,20 @@ export const ROUTES: RouteInfo[] = [
         path: '/referral-deals', title: 'Deals', icon: 'ft-copy', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
     },
     {
-        path: '/referral-start',
-        title: 'Start Referral',
-        icon: 'ft-layout',
-        class: '',
-        badge: '',
+        path: '/referral-lead',
+        title: 'Lead Form',
+        icon: 'icon-book-open',
+        class: '', badge: '',
         badgeClass: '',
         isExternalLink: false,
         submenu: []
     },
     {
-        path: '/referral-lead',
-        title: 'Lead Form',
-        icon: 'icon-book-open',
-        class: '', badge: '',
+        path: '/referral-integration',
+        title: 'Web Integration',
+        icon: 'ft-aperture',
+        class: '',
+        badge: '',
         badgeClass: '',
         isExternalLink: false,
         submenu: []
@@ -82,6 +91,26 @@ export const ROUTES: RouteInfo[] = [
                 badgeClass: '',
                 isExternalLink: false,
                 submenu: []
+            },
+            {
+                path: '/referral-marketing',
+                title: 'Marketing Tips',
+                icon: '',
+                class: '',
+                badge: '',
+                badgeClass: '',
+                isExternalLink: false,
+                submenu: []
+            },
+            {
+                path: '/referral-case',
+                title: 'Case Studies',
+                icon: '',
+                class: '',
+                badge: '',
+                badgeClass: '',
+                isExternalLink: false,
+                submenu: []
             }
         ]
     },
@@ -103,8 +132,17 @@ export const ROUTES: RouteInfo[] = [
                 badgeClass: '', 
                 isExternalLink: false, 
                 submenu: []
+            },
+            {
+                path: '/referral-brochure',
+                title: 'Brochure',
+                icon: '',
+                class: '',
+                badge: '',
+                badgeClass: '',
+                isExternalLink: false,
+                submenu: []
             }
         ]
     }
-
 ];

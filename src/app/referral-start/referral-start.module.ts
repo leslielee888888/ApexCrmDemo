@@ -5,14 +5,14 @@ import { ReferralStartRoutingModule } from './referral-start-routing.module';
 import { ReferralStartComponent } from './referral-start.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReferralUtilModule } from '../referral-util/referral-util.module';
-import { ClickToCopyDirective } from '../referral-util/click-to-copy/click-to-copy.directive';
 
 @NgModule({
   imports: [
     CommonModule,
     ReferralStartRoutingModule,
-    NgbModule
+    NgbModule,
+    ReferralUtilModule
   ],
-  declarations: [ReferralStartComponent, ClickToCopyDirective]
+  declarations: [ReferralStartComponent]
 })
 export class ReferralStartModule { }

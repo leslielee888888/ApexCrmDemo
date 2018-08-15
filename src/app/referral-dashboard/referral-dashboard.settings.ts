@@ -33,21 +33,21 @@ export const ApplicationsTableSettings = {
             type: 'custom',
             renderComponent: LoanAmountRenderComponent,
         },
-       /*  mc_final_status: {
-            title: 'Preliminary Result',
-            filter: false,
-            width: '150px'
-        }, */
+        /*  mc_final_status: {
+             title: 'Preliminary Result',
+             filter: false,
+             width: '150px'
+         }, */
         ReferrerCrmStatus: {
             title: 'Status',
             filter: false,
         },
-       /*  ReferrerCrmAmount: {
-            title: 'Offered Loan Amount',
-            filter: false,
-            type: 'custom',
-            renderComponent: LoanAmountRenderComponent,
-        }, */
+        /*  ReferrerCrmAmount: {
+             title: 'Offered Loan Amount',
+             filter: false,
+             type: 'custom',
+             renderComponent: LoanAmountRenderComponent,
+         }, */
         ViewAppForm: {
             title: 'App Form',
             filter: false,
@@ -66,7 +66,8 @@ export const ApplicationsTableSettings = {
             filter: false,
             type: 'custom',
             renderComponent: EmailMeCheckRenderComponent,
-            onComponentInitFunction: onComponentInitFunction
+            onComponentInitFunction: onComponentInitFunction,
+            valuePrepareFunction: null
         }
     },
     attr: {

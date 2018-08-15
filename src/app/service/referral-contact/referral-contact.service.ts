@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { ReferralUserService } from './../referral-user/referral-user.service';
 import { HttpParams } from '@angular/common/http';
 import { HttpService } from './../http.service';

@@ -1,9 +1,8 @@
-import { Observer } from 'rxjs/Observer';
+import { Observer ,  Observable } from 'rxjs';
 import { ReferralUserService } from './../referral-user/referral-user.service';
 import { Injectable } from '@angular/core';
 import { User } from '../../referral-entity/user';
 import { HttpService } from '../http.service';
-import { Observable } from 'rxjs/Observable';
 import { HttpParams } from '@angular/common/http';
 import { ReferralAuthService } from '../referral-auth/referral-auth.service';
 
@@ -19,7 +18,7 @@ export class ReferralLoginService {
     // return this.http.Post('login-token', httpParams);
     return Observable.create((observer: Observer<any>) => {
       this.http.Post('function/login-token.php', httpParams).subscribe(data => {
-        console.log(this.userService.getUser(), data);
+        
         // tslint:disable-next-line:triple-equals
         if (data.status == "Success") {
           this.referralAuth.setToken(data.message);
@@ -43,4 +42,7 @@ export class ReferralLoginService {
     return this.http.Post('reset-password', httpParams);
   }
 
+  checkTermCondition(email) {
+    return this.http.Get('checkPortalTermCondition', 'login_name=' + email)
+  }
 }

@@ -2,9 +2,8 @@ import { ReferralAuthService } from './referral-auth/referral-auth.service';
 import { ReferralUserService } from './referral-user/referral-user.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable ,  Observer } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
-import { Observer } from 'rxjs/Observer';
 import { environment } from 'environments/environment';
 
 @Injectable()
@@ -20,7 +19,7 @@ export class HttpService {
       responseType: 'text'
     }
   }
-  Get(url: string, params?: string): Observable<any> {
+  Get(url: string, params: string = ''): Observable<any> {
     if (this.referralAuth.isAuthenticated()) {
       this.headers = new HttpHeaders().set('Accept', 'application/text').set('Client-Security-Token', this.referralAuth.getToken());
       this.postHttpOptions = {
@@ -36,7 +35,7 @@ export class HttpService {
             rs = JSON.parse(data as string);
           } catch (e) {
             rs = data;
-            console.log('httpClient Get Error', e);
+            
           }
           ob.next(rs);
           ob.complete();
@@ -61,7 +60,7 @@ export class HttpService {
           rs = JSON.parse(data as string);
         } catch (e) {
           rs = data;
-          console.log('httpClient Post Error', e);
+          
         }
         ob.next(rs);
         ob.complete();

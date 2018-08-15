@@ -20,7 +20,7 @@ export class CommentComponent implements ViewCell, OnInit {
   delTotalComment = new EventEmitter();
   constructor(private modalService: NgbModal, private zone: NgZone) {
     /* this.addTotalComment.subscribe(_ => {
-      console.log(this.renderValue);
+      
       this.zone.run(() => {
         this.renderValue.totalComment = Number(this.renderValue.totalComment) + 1;
       })

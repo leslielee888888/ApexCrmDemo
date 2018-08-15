@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, CurrencyPipe } from "@angular/common";
+import { CommonModule, CurrencyPipe, UpperCasePipe } from "@angular/common";
 import { RouterModule } from "@angular/router";
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -9,9 +9,10 @@ import { FooterComponent } from "./footer/footer.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 // import { HorizontalNavbarComponent } from "./horizontal-navbar/horizontal-navbar.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
-import { CurrencyFormatterDirective } from './directives/currency-formatter.directive';
-import { FormsModule, NgModel } from '@angular/forms';
-import { PhoneFormatterDirective } from './directives/phone-formatter.directive';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
+import { FormatterDirective } from './directives/formatter.directive';
+import { ChangepasswordModalComponent } from '../referral-modal/changepassword-modal/changepassword-modal.component';
+import { ReferralLoginService } from '../service/referral-login/referral-login.service';
 // import { HorizontalMenuComponent } from "./horizontal-menu/horizontal-menu.component";
 // import { CustomizerComponent } from './customizer/customizer.component';
 // import { NotificationSidebarComponent } from './notification-sidebar/notification-sidebar.component';
@@ -30,33 +31,39 @@ import { PhoneFormatterDirective } from './directives/phone-formatter.directive'
         // NotificationSidebarComponent,
         // ToggleFullscreenDirective,
         NgbModule,
-        CurrencyFormatterDirective,
-        PhoneFormatterDirective
+        FormatterDirective
         // TranslateModule
     ],
     imports: [
         RouterModule,
         CommonModule,
         NgbModule,
+        FormsModule,
+        ReactiveFormsModule
         // TranslateModule
 
     ],
     providers: [
         CurrencyPipe,
-        NgModel
+        UpperCasePipe,
+        NgModel,
+        ReferralLoginService
     ],
     declarations: [
         FooterComponent,
         NavbarComponent,
         // HorizontalNavbarComponent,
         SidebarComponent,
+        ChangepasswordModalComponent,
         // CurrencyFormatterDirective,
         // HorizontalMenuComponent,
         // CustomizerComponent,
         // NotificationSidebarComponent,
         // ToggleFullscreenDirective
-        CurrencyFormatterDirective,
-        PhoneFormatterDirective
+        FormatterDirective
+    ],
+    entryComponents: [
+        ChangepasswordModalComponent
     ]
 })
 export class SharedModule { }

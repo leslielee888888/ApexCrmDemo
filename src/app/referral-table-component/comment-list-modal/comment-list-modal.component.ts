@@ -4,7 +4,6 @@ import { Component, OnInit, Input, ViewChild, EventEmitter } from '@angular/core
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { LocalDataSource, ViewCell } from 'ng2-smart-table';
 import * as tableData from './comment-list-table.setting';
-import { ToastsManager } from 'ng2-toastr';
 import swal from 'sweetalert2';
 import * as moment from 'moment';
 @Component({
@@ -21,7 +20,7 @@ export class CommentListModalComponent implements OnInit {
   source: LocalDataSource;
 
   constructor(private ngbActiveModal: NgbActiveModal
-    , private referralTableCommentService: ReferralTableCommentService, private toast: ToastsManager) {
+    , private referralTableCommentService: ReferralTableCommentService) {
     // this.source = new LocalDataSource(tableData.data); // create the source
   }
 
@@ -38,15 +37,15 @@ export class CommentListModalComponent implements OnInit {
   }
 
   createConfirm(event) {
-    console.log(event);
+    
   }
 
   confirmSave(event) {
-    console.log(event)
+    
     const newData = event.newData;
     /* this.referralDealsService.saveComment(this.record.eapp_id, newData.comment, newData.id)
       .subscribe(data => {
-        console.log(data);
+        
         // tslint:disable-next-line:triple-equals
         if (data.toString().trim() == "Comment updated.") {
           this.toast.success('Comment updated.', 'message');
@@ -69,7 +68,7 @@ export class CommentListModalComponent implements OnInit {
         return new Promise(function (resolve) {
           self.referralTableCommentService.saveComment(self.record.eapp_id, newData.comment, newData.id)
             .subscribe(data => {
-              console.log(data);
+              
               // tslint:disable-next-line:triple-equals
               if (data.toString().trim() == "Comment updated.") {
                 event.confirm.resolve();
@@ -82,7 +81,7 @@ export class CommentListModalComponent implements OnInit {
       },
       allowOutsideClick: false
     }).then(function (rs) {
-      console.log(rs);
+      
       if (rs.value) {
         swal({
           type: 'success',
@@ -113,7 +112,7 @@ export class CommentListModalComponent implements OnInit {
           const newData = event.data;
           self.referralTableCommentService.deleteComment(self.record.eapp_id, newData.comment, newData.id)
             .subscribe(data => {
-              console.log(data);
+              
               // tslint:disable-next-line:triple-equals
               if (data.toString().trim() == "Comment is deleted.") {
                 resolve(true);
@@ -127,7 +126,7 @@ export class CommentListModalComponent implements OnInit {
       },
       allowOutsideClick: false
     }).then(function (rs) {
-      console.log(rs);
+      
       if (rs.value) {
         swal({
           type: 'success',
@@ -143,7 +142,7 @@ export class CommentListModalComponent implements OnInit {
     /*const newData = event.data;
     this.referralDealsService.deleteComment(this.record.eapp_id, newData.comment, newData.id)
       .subscribe(data => {
-        console.log(data);
+        
         // tslint:disable-next-line:triple-equals
         if (data.toString().trim() == "Comment is deleted.") {
           this.toast.success('Comment is deleted.', 'message');
@@ -195,7 +194,7 @@ export class CommentListModalComponent implements OnInit {
       },
       allowOutsideClick: false
     }).then(function (rs) {
-      console.log(rs);
+      
       if (rs.value) {
         swal({
           type: 'success',

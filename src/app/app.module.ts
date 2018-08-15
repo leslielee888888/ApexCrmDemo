@@ -1,33 +1,27 @@
-import { FormsModule } from '@angular/forms';
-import { ReferralAuthGuardService } from './service/referral-auth/referral-auth-guard.service';
-import { ClickToCopyDirective } from './referral-util/click-to-copy/click-to-copy.directive';
-
+import { AgmCoreModule } from '@agm/core';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from "./shared/shared.module";
-import { ToastModule, ToastOptions } from 'ng2-toastr/ng2-toastr';
-import { AgmCoreModule } from '@agm/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 // import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { StoreModule } from '@ngrx/store';
-
+// import { HorizontalLayoutComponent } from "./layouts/horizontal/horizontal-layout.component";
+import { ToastrModule } from 'ngx-toastr';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContentLayoutComponent } from "./layouts/content/content-layout.component";
 import { FullLayoutComponent } from "./layouts/full/full-layout.component";
-// import { HorizontalLayoutComponent } from "./layouts/horizontal/horizontal-layout.component";
+import { HttpService } from './service/http.service';
+import { ReferralAuthGuardService } from './service/referral-auth/referral-auth-guard.service';
+import { ReferralAuthService } from './service/referral-auth/referral-auth.service';
+import { ReferralUserService } from './service/referral-user/referral-user.service';
+import { SharedModule } from "./shared/shared.module";
 
-import { CustomOption } from "./shared/toastr/custom-option";
 
 import * as $ from 'jquery';
-import { HttpService } from './service/http.service';
-import { ReferralUtilModule } from './referral-util/referral-util.module';
-import { ReferralUserService } from './service/referral-user/referral-user.service';
-import { ReferralAuthService } from './service/referral-auth/referral-auth.service';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ReferralProfileService } from './service/referral-profile/referral-profile.service';
 
 // export function createTranslateLoader(http: HttpClient) {
 //     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -38,7 +32,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
         AppComponent,
         FullLayoutComponent,
         // HorizontalLayoutComponent,
-        ContentLayoutComponent
+        ContentLayoutComponent,
     ],
     imports: [
         BrowserAnimationsModule,
@@ -46,8 +40,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
         AppRoutingModule,
         SharedModule,
         HttpClientModule,
-        ToastModule.forRoot(),
         NgbModule.forRoot(),
+        ToastrModule.forRoot(),
         // TranslateModule.forRoot({
         //     loader: {
         //         provide: TranslateLoader,
@@ -63,11 +57,11 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     providers: [
         // Toastr and auth providers
         {provide: LocationStrategy, useClass: HashLocationStrategy},
-        { provide: ToastOptions, useClass: CustomOption },
         HttpService,
         ReferralUserService,
         ReferralAuthService,
-        ReferralAuthGuardService
+        ReferralAuthGuardService,
+        ReferralProfileService
     ],
     bootstrap: [AppComponent]
 })

@@ -32,7 +32,7 @@ export class ReferralFeeComponent implements OnInit {
           this.userCommission = data.affiliates;
           this.PendingCommissionTableSource = new LocalDataSource(data.affiliates.pendings);
           this.ReceivedCommissionTableSource = new LocalDataSource(data.affiliates.paids);
-          console.log(this.ReceivedCommissionTableSource);
+          
         })();
       })
   }

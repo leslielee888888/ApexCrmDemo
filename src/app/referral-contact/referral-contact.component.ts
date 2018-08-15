@@ -1,4 +1,4 @@
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { ReferralContactService } from './../service/referral-contact/referral-contact.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
@@ -16,7 +16,7 @@ export class ReferralContactComponent implements OnInit {
   txtQuery: any;
   contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private referralContactService: ReferralContactService, private toastsManager: ToastsManager) {
+  constructor(private fb: FormBuilder, private referralContactService: ReferralContactService, private toastr: ToastrService) {
   }
 
 
@@ -27,15 +27,15 @@ export class ReferralContactComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(1);
+    
     this.referralContactService.doContactUs(this.txtQuery)
       .subscribe(data => {
-        console.log(data);
+        
         // tslint:disable-next-line:triple-equals
         if (data.trim() == "Success") {
-          this.toastsManager.success('Save success', 'Message');
+          this.toastr.success('Save success', 'Message');
         } else {
-          this.toastsManager.error('Save fail', 'Message');
+          this.toastr.error('Save fail', 'Message');
         }
       });
   }

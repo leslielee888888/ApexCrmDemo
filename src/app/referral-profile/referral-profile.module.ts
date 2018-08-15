@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { ReferralProfileRoutingModule } from './referral-profile-routing.module';
 import { ReferralProfileComponent } from './referral-profile.component';
 import { FormsModule } from '@angular/forms';
-import { ToastModule } from 'ng2-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReferrerIntroModalComponent } from './referrer-intro-modal/referrer-intro-modal.component';
 import { SharedModule } from '../shared/shared.module';
+import { UiSwitchModule } from '../../../node_modules/ngx-ui-switch';
+import { ReferralUserService } from '../service/referral-user/referral-user.service';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { SharedModule } from '../shared/shared.module';
     ReferralProfileRoutingModule,
     FormsModule,
     NgbModule,
-    SharedModule
+    SharedModule,
+    UiSwitchModule
   ],
   declarations: [ReferralProfileComponent, ReferrerIntroModalComponent],
   providers: [

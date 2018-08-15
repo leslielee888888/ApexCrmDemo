@@ -11,7 +11,7 @@
         <div class="px-3">
 
           <!-- <form class="form" (ngSubmit)="onSubmit()" #leadNgForm="ngForm"> -->
-          <form class="form" (ngSubmit)="onSubmit()" [formGroup]='leadFormGroup'>
+          <form class="form" [formGroup]='leadFormGroup' >
             <div class="form-body">
               <h4 class="form-section">
                 <i class="ft-info"></i> Personal Info</h4>
@@ -21,21 +21,29 @@
                     <label for="userinput1">First Name
                       <code><i class="icon-star"></i></code>
                     </label>
-                    <input type="text" id="userinput1" class="form-control border-primary" placeholder='First Name' name="first_name" 
-                      [(ngModel)]="LeadForm.first_name" formControlName='first_name' required>
-                    <code class="form-text" *ngIf="leadFormGroup.controls.first_name.invalid && (leadFormGroup.controls.first_name.dirty || leadFormGroup.controls.first_name.touched)">Please enter a first name!</code>
+                    <div class="position-relative has-icon-right" [ngClass]="{'error':leadFormGroup.controls.first_name.invalid && (leadFormGroup.controls.first_name.dirty || leadFormGroup.controls.first_name.touched )}">
+                      <input type="text" id="userinput1" class="form-control  border-primary" placeholder='First Name' name="first_name" [(ngModel)]="LeadForm.first_name"
+                        formControlName='first_name' appFormatter formatType='name' required>
+                      <div class="form-control-position display-hidden">
+                        <code> <i class="ft-x "></i></code>
+                      </div>
+                    </div>
+                    <!-- <code class="form-text" *ngIf="leadFormGroup.controls.first_name.invalid && (leadFormGroup.controls.first_name.dirty || leadFormGroup.controls.first_name.touched )">Please enter a first name!</code> -->
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="userinput2">Last Name
                       <code><i class="icon-star"></i></code>
-
                     </label>
-                    <input type="text" id="userinput2" class="form-control border-primary" placeholder='Last Name' name="last_name"
-                      [(ngModel)]="LeadForm.last_name" formControlName='last_name' required>
-                    <code class="form-text" *ngIf="leadFormGroup.controls.last_name.invalid && (leadFormGroup.controls.last_name.dirty || leadFormGroup.controls.last_name.touched)">Please enter a last name!</code>
-
+                    <div class="position-relative has-icon-right" [ngClass]="{'error':leadFormGroup.controls.last_name.invalid && (leadFormGroup.controls.last_name.dirty || leadFormGroup.controls.last_name.touched )}">
+                      <input type="text" id="userinput2" class="form-control border-primary" placeholder='Last Name' name="last_name" [(ngModel)]="LeadForm.last_name"
+                        formControlName='last_name' appFormatter formatType='name' required>
+                      <!-- <code class="form-text" *ngIf="leadFormGroup.controls.last_name.invalid && (leadFormGroup.controls.last_name.dirty || leadFormGroup.controls.last_name.touched )">Please enter a last name!</code> -->
+                      <div class="form-control-position display-hidden">
+                        <code> <i class="ft-x "></i></code>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -46,9 +54,15 @@
                       <code><i class="icon-star"></i></code>
 
                     </label>
-                    <input type="text" id="userinput3" class="form-control border-primary" placeholder='email@gmail.com' name="email"
-                      [(ngModel)]="LeadForm.email" formControlName='email'>
-                    <code class="form-text" *ngIf="leadFormGroup.controls.email.invalid && (leadFormGroup.controls.email.dirty || leadFormGroup.controls.email.touched)">Please enter a correct email!</code>
+                    <div class="position-relative has-icon-right" [ngClass]="{'error':leadFormGroup.controls.email.invalid && (leadFormGroup.controls.email.dirty || leadFormGroup.controls.email.touched )}">
+
+                      <input type="text" id="userinput3" class="form-control border-primary" placeholder='email@gmail.com' name="email" [(ngModel)]="LeadForm.email"
+                        formControlName='email' appFormatter formatType='email'>
+                      <!-- <code class="form-text" *ngIf="leadFormGroup.controls.email.invalid && (leadFormGroup.controls.email.dirty || leadFormGroup.controls.email.touched )">Please enter a correct email!</code> -->
+                      <div class="form-control-position display-hidden">
+                        <code> <i class="ft-x "></i></code>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -56,10 +70,16 @@
                     <label for="userinput4">Contact Number
                       <code><i class="icon-star"></i></code>
 
-                    </label> 
-                    <input type="text" id="userinput4" class="form-control border-primary" placeholder='0400 000 000' name="daytime_phone"
-                     [(ngModel)]="LeadForm.daytime_phone" formControlName='daytime_phone' [appPhoneFormatter]='leadFormGroup.controls.daytime_phone'>
-                    <code class="form-text" *ngIf="leadFormGroup.controls.daytime_phone.invalid && (leadFormGroup.controls.daytime_phone.dirty || leadFormGroup.controls.daytime_phone.touched)">Please enter a correct contact number!</code>
+                    </label>
+                    <!-- <div class="position-relative has-icon-right" [ngClass]="{'error':leadFormGroup.controls.daytime_phone.invalid && (leadFormGroup.controls.daytime_phone.dirty || leadFormGroup.controls.daytime_phone.touched )}"> -->
+                    <div class="position-relative has-icon-right" [ngClass]="{'error':leadFormGroup.controls.daytime_phone.invalid&& (leadFormGroup.controls.daytime_phone.dirty || leadFormGroup.controls.daytime_phone.touched )}">
+                      <input type="text" id="userinput4" class="form-control border-primary" placeholder='0400 000 000' name="daytime_phone" [(ngModel)]="LeadForm.daytime_phone"
+                        formControlName='daytime_phone' appFormatter formatType='phone'>
+                      <!-- <code class="form-text" *ngIf="leadFormGroup.controls.daytime_phone.invalid && (leadFormGroup.controls.daytime_phone.dirty || leadFormGroup.controls.daytime_phone.touched )">Please enter a correct contact number!</code> -->
+                      <div class="form-control-position display-hidden">
+                        <code> <i class="ft-x "></i></code>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -67,29 +87,38 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="userinput5">Loan Amount
-                    <code><i class="icon-star"></i></code>
+                      <code><i class="icon-star"></i></code>
                     </label>
-                    <div class="input-group mb-0">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">$</span>
-                        <!-- <span class="input-group-text">{{(LeadForm.loan_amount?LeadForm.loan_amount:0) | currency:'$':'symbol':'0.0'}}</span> -->
+                    <div class="position-relative has-icon-right" [ngClass]="{'error':leadFormGroup.controls.loan_amount.invalid && (leadFormGroup.controls.loan_amount.dirty || leadFormGroup.controls.loan_amount.touched )}">
+                      <div class="input-group mb-0">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">$</span>
+                        </div>
+                        <input class="form-control border-primary" type="text" id="userinput5" placeholder='e.g. 100,000' name="loanamount"
+                          [(ngModel)]="LeadForm.loan_amount" formControlName='loan_amount' appFormatter
+                          formatType='currency'>
+                        <!-- <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                          </div> -->
                       </div>
-                      <!-- <input class="form-control border-primary" type="text" id="userinput5" placeholder='eg.10000' name="loanamount" [(ngModel)]="LeadForm.loan_amount"
-                        #loanamount="ngModel" pattern="[0-9,]*" appCurrencyFormatter> -->
-                        <input class="form-control border-primary" type="text" id="userinput5" placeholder='eg.10000 at least 1000' name="loanamount" [(ngModel)]="LeadForm.loan_amount"
-                        formControlName='loan_amount' [appCurrencyFormatter]='leadFormGroup.controls.loan_amount' >
-                      <!-- <div class="input-group-append">
-                        <span class="input-group-text">.00</span>
-                      </div> -->
+                      <div class="form-control-position display-hidden">
+                        <code> <i class="ft-x "></i></code>
+                      </div>
                     </div>
-                    <code class="form-text" *ngIf="leadFormGroup.controls.loan_amount.invalid && (leadFormGroup.controls.loan_amount.dirty || leadFormGroup.controls.loan_amount.touched)">Please enter a correct loan amount(at least 1000)!</code>
+                    <code class="form-text" *ngIf="leadFormGroup.controls.loan_amount.invalid && (leadFormGroup.controls.loan_amount.dirty || leadFormGroup.controls.loan_amount.touched )">Loan Amount must be $1,000</code>
                     <!-- <input class="form-control border-primary" type="text" id="userinput5" placeholder='eg.10000' name="loanamount" [(ngModel)]="LeadForm.loanamount"> -->
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="userinput6">ABN</label>
-                    <input class="form-control border-primary" type="text" id="userinput6" name="abn" [(ngModel)]="LeadForm.abn" formControlName='abn'>
+                    <div class="position-relative has-icon-right" [ngClass]="{'error':leadFormGroup.controls.abn.invalid && (leadFormGroup.controls.abn.dirty || leadFormGroup.controls.abn.touched )}">
+                      <input class="form-control border-primary" type="text" id="userinput6" name="abn" placeholder='' [(ngModel)]="LeadForm.abn" formControlName='abn'
+                        appFormatter formatType='abn'>
+                      <div class="form-control-position display-hidden">
+                        <code> <i class="ft-x "></i></code>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -104,11 +133,17 @@
                     </select>
                   </div>
                 </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <input class="form-control border-primary" type="text" id="comment" name="comment" placeholder='' [(ngModel)]="LeadForm.comment" formControlName='comment'>
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="userinput8">Comment</label>
                 <textarea id="userinput8" rows="3" class="form-control border-primary" name="comment" [(ngModel)]="LeadForm.comment" formControlName='comment'></textarea>
-              </div>
+              </div> -->
 
             </div>
             <div class="form-actions pb-0">
@@ -129,8 +164,9 @@
               <!-- <button type="button" class="btn btn-raised btn-warning mr-1">
                 <i class="ft-x"></i> Cancel
               </button> -->
-              <button type="submit" class="btn btn-raised btn-success" [disabled]="!leadFormGroup.valid || !leadFormGroup.dirty">
-                <i class="fa fa-check-square-o"></i> Submit
+              <!-- <button type="button" (click)='onSubmit()' class="btn btn-raised btn-success" [disabled]="!leadFormGroup.valid || !leadFormGroup.dirty"> -->
+              <button type="button" (click)='onSubmit()' class="btn btn-raised btn-success" >
+                <i class="far fa-check-square"></i> Submit
               </button>
             </div>
           </form>

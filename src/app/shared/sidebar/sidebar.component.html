@@ -22,7 +22,7 @@
     <div class="nav-container">
         <ul class="navigation">
             <!-- First level menu -->
-             <li *ngFor="let menuItem of menuItems" [ngClass]="[menuItem.class]" [routerLinkActive]="menuItem.submenu.length != 0 ? '' : 'active'"
+             <li *ngFor="let menuItem of menuItems,index as i" [ngClass]="[menuItem.class]" class='menu{{menuItem.title}}' [routerLinkActive]="menuItem.submenu.length != 0 ? '' : 'active'"
                 [routerLinkActiveOptions]="{exact: true}">
                 <a [routerLink]="menuItem.class === '' ? [menuItem.path] : null" *ngIf="!menuItem.isExternalLink; else externalLinkBlock">
                     <i [ngClass]="[menuItem.icon]"></i>

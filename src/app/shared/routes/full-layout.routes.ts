@@ -42,5 +42,21 @@ export const Full_ROUTES: Routes = [
   {
     path: 'referral-lead',
     loadChildren: './referral-lead/referral-lead.module#ReferralLeadModule'
+  }, 
+  {
+    path: 'referral-marketing',
+    loadChildren: './referral-marketing/referral-marketing.module#ReferralMarketingModule'
+  }, 
+  {
+    path: 'referral-integration',
+    loadChildren: './referral-integration/referral-integration.module#ReferralIntegrationModule'
+  }, 
+  {
+    path: 'referral-case',
+    loadChildren: './referral-case/referral-case.module#ReferralCaseModule'
+  }, 
+  {
+    path: 'referral-brochure',
+    loadChildren: './referral-brochure/referral-brochure.module#ReferralBrochureModule'
   }
 ];

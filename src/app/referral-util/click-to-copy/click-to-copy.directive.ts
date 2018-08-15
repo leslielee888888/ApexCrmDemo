@@ -8,7 +8,7 @@ export class ClickToCopyDirective {
   @Input('appClickToCopy') copyRef;
 
   @HostListener('click') onClick() {
-    console.log('ClickToCopyDirective:::click')
+    
     const range = document.createRange();
     range.selectNode(this.copyRef);
     window.getSelection().removeAllRanges();
